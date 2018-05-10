@@ -227,6 +227,7 @@ Boot CAMP
     which 
         WebElement upload = driver.findElement
         upload.sendKeys("C:/user/me/file.txt")
+
 * sometimes sendKeys path does not work
     - you have to use the robot or autoid
     - to fix you have to build a dynamic path for file inside
@@ -236,6 +237,7 @@ Boot CAMP
     path of the file in the project : 
     "src/test/resources/test_data/myfile.txt"
     - Element.sendKyes(projectDir+file)
+
 * have you done any cross browser testing?
     - yes
     - always mention that you have a control file for keywords
@@ -249,4 +251,50 @@ Boot CAMP
     - phanthomjsDriver: thrid party driver
         webdriver driver = new htmlUnitDriver();
     - taking screenshots will still work with headless browser
+
+* how you resolve certification issue?
+    - IF you are using CHROME, Internet Explorer
+        DesiredCapabilities capability = DesiredCapabilities.chrom();
+        capability.setcapability(capability.ACCEPT_SSL_CERTS, true );
+        System.setProperty("webdriver.chrome.driver","E:/chromedriver.exe")
+        driver = new ChromeDriver(capability);
+    - more examples badssl.com
+
+* How will do you performance Stress Security SQL injection testing?
+    - selenium engineer does not do any of these tests. these tests are done by
+    experts trained in these tools.
+
+* how do you handle Js alerts?
+    - if the alert on the browser comes from javaScript we use the Alert Class.
+    - Alert alert = driver.switchTo.alert();
+    - alert.accept();
+    - alert.dismiss();
+    - alert.sendkeys();
+
+* how you handle browser popup?
+    - Treat it as another webElement to close find the cancel link 
+    to the x icon and click();
+
+* how you handle windows/OS pop ups?
+    - using the robot or the AutoIT
+
+* Verify element is not displayed?
+    - element = driver.findElement()
+    - element.isDisplayed();
+    - driver.findElement().isDisplayed() -> this line will throw exeption if the element
+    is not in the html
+         try{
+             find
+             return if displayed
+         }
+         Catch(element not fund)
+         {return true}
+    
+* Why I can not find element?
+    - locator changed
+    - there is an iframe
+    - waiting time : page is loading slowly
+    - element is dynamic : locator can not find it
+    - page is not fully loaded/opened 
+    - page changes and that element does not exist anymore
     
