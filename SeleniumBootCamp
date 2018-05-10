@@ -231,4 +231,20 @@ Boot CAMP
     - you have to use the robot or autoid
     - to fix you have to build a dynamic path for file inside
     our project
-    - path of the file in the project 
+    - path of the file in the project : 
+    String projectDir= System.getProperty("usr.dir")
+    path of the file in the project : 
+    "src/test/resources/test_data/myfile.txt"
+    - Element.sendKyes(projectDir+file)
+* have you done any cross browser testing?
+    - yes
+    - always mention that you have a control file for keywords
+    like browserType main url password username enviroment. 
+
+* have you done any headless browser testing?
+    - its a browser that does not open it runs as a background service
+    or program. They are fast
+    - html unitdriver: headless browser that comes from selenium
+        webdriver driver = new hemlUnitDRiver();
+    - phanthomjsDriver: thrid party driver
+        webdriver driver = new htmlUnitDriver();
