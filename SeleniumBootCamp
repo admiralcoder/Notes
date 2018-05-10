@@ -248,3 +248,5 @@ Boot CAMP
         webdriver driver = new hemlUnitDRiver();
     - phanthomjsDriver: thrid party driver
         webdriver driver = new htmlUnitDriver();
+    - taking screenshots will still work with headless browser
+    
