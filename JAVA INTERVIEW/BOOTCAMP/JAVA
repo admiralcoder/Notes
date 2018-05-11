@@ -311,7 +311,113 @@ Inmutable means values can not be changed once its created:
       or access the variables at the same time and the JVM takes care of
       enforcing that. it is used to achieve thread-safety
 -----------------------------------------------------------------
-continue from page 51 
+* how to check if String is palindrome?
+    - civic = civic <- is a palindrome
+    - public static boolean isPalindrome(String str){
+        if(str==null)
+        return false;
+        StringBuilder strBuilder = new StringBuilder(str);
+        strBuilder.reverse();
+        return strBuilder.toString().equals(str);
+    }
+-----------------------------------------------------------------
+* what is singleton class and how can we make a class singleton?
+    - Ensures that a class has only one instance and provide a global point
+    of access to it
+    public class SingletonExample{
+    // static member holds only one instance of the singleton class
+      private static singletonExample singletonInstance;
+
+    // singleton prevents any other class from instantiating
+      private SingletonExample(){
+      }
+    }
+
+Example: 
+
+    - Singleton Example in Java
+      public class dbaseConnector{
+          private static final dbaseConnector instance = new DbaseConnect();
+          
+          private dbaseConnector(){
+              //construction code ....
+          }
+          public static DbaseConnector getInstance(){
+              return(instance);
+          }
+      }
+      
+-----------------------------------------------------------------
+* what is armstron ?
+-----------------------------------------------------------------
+* how to prevent Instantiation of a class?
+    - private constructor
+    - abstract class
+-----------------------------------------------------------------
+* what are OOP concepts in Java?
+    - encapsulation
+    - inheritance
+    - abstraction
+    - polymorphism
+
+-----------------------------------------------------------------
+* what is encapsulation and how did you use it?
+    - data: hiding by making variables private and providing public 
+      getter and setter methods.
+    - in my project i created multiple POJO/BEAN classes in order to manage
+      test data and actual data.
+
+    EX: I take JSON from API response and convert to object of my POJO
+      class all variables are private with getters and setter.
+-----------------------------------------------------------------
+* What is inheritance and benefits of it?
+    - inheritance is a process when a sub class inherits members from super class.
+      All public and protected and sometimes default members are inherited to
+      sub class.
+    - we will achieve code re-usability and code organization with it. also 
+    very useful for polymorphic programing. 
+    - test base is super class and other test classes are sub classes.
+
+    EX: we had a page object for one page and as another page contained same
+    elements i used inheritance in order to reuse the elements defined in super page
+    object class in selenium webdriver. 
+-----------------------------------------------------------------
+* what is abstraction in java and purpose?
+    - in General using abstraction in programing we can create a base/blueprint 
+    for our code and let sub classes implement as needed according to requirements
+
+    hiding the implementation and showing only behavior
+
+    2 ways to achieve abstraction in JAVA:
+    1) Abstract Classes
+    2) interfaces
+-----------------------------------------------------------------
+* difference between Abstract class and interface?
+    - difference between abstract class and interface in java
+    - types of methods: interface can have only abstract methods. abstract
+    class can have abstract and non abstract methods. from java 8 it can have default
+    and static methods also.
+    - final variables: variables declared in ajva interface are by default final. 
+    an abstract class may contain non final variables
+    - a class can implement multiple interfaces, but it can exted only single
+    abstract class. java does not support multiple inheritance
+    - methods 
+            - in interface: abstract static defaults, 
+            - in abstract class: abstract non-abstract static
+    - abstract class can have a constructor 
+      interface can not have a constructor
+    - interface can extend other interfaces(multiple)
+-----------------------------------------------------------------
+* why java does not support multiple inheritance?
+    - 
+-----------------------------------------------------------------
+* Difference between overloading and overriding?
+    1: overlaoding = same method name but different parameters
+       overriding = same method name and same paramethers
+
+    2: overloading = return type can be different
+       overriding = same type or sub type
+       
 -----------------------------------------------------------------
 
 -----------------------------------------------------------------
@@ -330,9 +436,9 @@ continue from page 51
 
 -----------------------------------------------------------------
 
+-----------------------------------------------------------------
 
-
-
+-----------------------------------------------------------------
 
 
 
