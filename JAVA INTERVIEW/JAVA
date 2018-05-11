@@ -1,0 +1,346 @@
+Interview Questions
+
+* JVM:
+    - is java virtual machine the jvm actually runs java byte code
+    .class files
+    - write once and run everywhere -> bytecode
+
+* JRE:
+    - is java runtime environment is what you need to run a java program
+    and contains a jvm among other things.
+
+* JDK:
+    - is java developer kit -- the jdk is what you need to compile 
+    java source code. java to .class file
+    - to program in java you will need jdk you can install JDK from
+    oracle website.
+-----------------------------------------------------------------
+* difference between Path and classPath?
+    - Path:
+         is used to define where the executables are .exe files
+         java.exe, javac.exe etc
+    - Class path:
+         is used to specify location of Java.class files
+
+    - java source code -> compile (javac) -> bytecode .class extension
+-----------------------------------------------------------------
+* versions of java you worked with?
+* what is the difference between Java 7 and 8?
+    - Version           Release         end public dates
+    - Java SE 7         2011            
+    - Java SE 8         2014            january 2019, december 2020
+    - Java SE 9         2017            March 2018
+    - Java SE 10        2018            September 2018
+
+      JAVA 7              vs            JAVA 8 }
+    - String in                        - Lambda Expression
+    Switch statement                   - pipelines and Streams
+    - Multiple Exeception              - date and time API
+    Handling                           - Java 8 interface changes
+                                        Static Method, Default 
+                                        Method
+-----------------------------------------------------------------
+* What is garbage collector and how many types?
+    - Automatic garbage collection is the process of looking at heap 
+    memory identifying which objects are in use and which are not 
+    and deleting unused objects
+    - An in use object or a referenced object means that some 
+    part of your program still maintains a pointer to that 
+    object
+
+    * Garbage Collectors
+        - serial : works with a single thread works for single
+                    threaded apps
+        - parallel: uses multiple threads for managing heap space
+        - CSM: (current mark sweep) uses multiple GC threads
+        - G1: is designed for application running on multiprocessor
+        machines with large memory space. breaks heap into smaller regions
+    
+    * how to call Garbage Collector?
+        - System.gc();
+-----------------------------------------------------------------
+* Explain Public Static void main (String args[])
+    - public: 
+            public is an access modifies which is used to specify who
+            can access this method. Public means that this method will be
+            accessible by any Class. 
+    - static:   
+            It is a keyword in java which identifies it is class bases i.e 
+            it can be accessed without creating the instance of a class
+    - void: 
+            it is the return type of the method void defines the method which 
+            will not return any value
+    - main: 
+            it is the name of the method which is searched by JVM as a 
+            starting point for an application with a particular signature only.
+            it is the method where the main executions occurs
+    - String args:
+            it is the parameter passed to the main method
+-----------------------------------------------------------------
+* can one class call another class main method?
+    - yes a main method can be called in another class main method
+    - code will compile without main method but will not run
+-----------------------------------------------------------------
+* what are the primitives and wrapper classes?
+    - every primitive data type has a class dedicated to it
+    - these are known as wrapper classes because they wrap the primitive data type
+    into an object of that class.
+    - we can convert from one type to another using casting
+
+    * PRIMITIVE         * WRAPPER CLASS         * CONSTRUCTOR ARGUMENT
+    boolean             Boolean                  boolean or String
+    byte                Byte                     byte or String
+    char                Character                char
+    int                 Integer                  int or String
+    float               Float                    float double or String
+    double              Double                   double or String
+    long                Long                     long or String
+    short               Short                    short or String
+-----------------------------------------------------------------
+* implicit casting vs explicit casting?
+    - Implicit Casting: 
+        int i = 100;
+        double d = i;
+
+    - Explicit Casting:
+        int n = 12;
+        byte b = (byte)n;
+
+    - Auto - Boxing
+        Integer num = n;
+
+    - Un - Boxing
+        int j = num;
+
+DONT WORK:
+            Integer i = new Integer(100);
+            double d = i ; // will not work
+
+-----------------------------------------------------------------
+* difference between Instance Variable and static Variable?
+    - Static Variables:
+                    belongs to the class itself not to objects 
+                    of the class, different objecst can not have different
+                    values for a static variable. only one copy of static variable
+                    for everyone. Every object instance of a class has its own copy
+                    of each instance variable declared in the class
+
+-----------------------------------------------------------------
+* What is constructor in java
+* what is the difference between constructor and method?
+    - A constructor in java is a block of code similar to a method thats called
+    when an instance of an object is created. Difference between constructor and
+    method:
+        - A constructor doesnt have a return type
+        - the name of the constructor must be the same as the name of the class
+        - unlike methods constructors are not considered members of a class
+        - a constructor is called automatically when a new instance of object
+        is created
+        - the purpose of a constructor is to initialize the object of a class
+        while the purpose of a method is to perform a task by executing java code
+        - default constructor is added if programmer did not add a constructor. 
+
+                                Types of Java Constructor
+                                        |
+                                        |
+                    ------------------------------------------
+                    |                                         |
+            default constructor                       parameterized constructor        
+
+-----------------------------------------------------------------
+* Can a super() and this() keywords be in same constructor?
+    - public computer(){
+        this();
+        super();
+        //code
+    }
+    - NO they both need to be in first line within constructor.
+-----------------------------------------------------------------
+* Super. VS Super()
+    - super. 
+            is used to access parent/super class members vars, methods
+    - super()
+            is used to call super class constructor
+
+* this. VS this()
+    - this.
+            this object by using this. we can access instance variables and 
+            method. to differentiate between instance and argument variable
+    - this()
+            call a constructor from another constructor in same class
+
+    Example:
+        public class computer{
+            private String brand;
+            
+            public computer(){
+                this("apple");
+            }
+            public computer (String brand){
+                this.brand = brand;
+            }
+        }
+-----------------------------------------------------------------
+* What is the difference between access modifiers in java?
+    Modifier       Class    Package     Subclass    World
+    - public         Y          Y           Y          Y
+    - protected      Y          Y           Y          N
+    - no modifier    Y          Y           N          N
+    - private        Y          N           N          N 
+
+-----------------------------------------------------------------
+* what is static keyword in java?
+    - Static keyword means that the variable or method belongs to class
+      and shared between all instances.
+    - we can call static members by using class name or object
+    - static methods can not call/refer Non Static members
+    - Static can be: variables, method, block, inner class
+
+    public class Computer{
+        private String brand; 
+        public Computer(){ 
+             this("Apple"); 
+             } 
+        public Computer(String brand) { 
+            this.brand = brand; } 
+            public static class Memory{ 
+                private int ramsize; 
+            } 
+        } 
+        Memory c = new Computer().new Memory();
+-----------------------------------------------------------------
+* Static block and instance initializer block?
+    - the static initializer block will be called on loading of the class and code
+      will run only once in the begining 
+    - instance initializer block execute every time you create an object
+      for a class. before any constructor. 
+
+    Example:
+        public class programer{
+            System.out.println("constructor")
+        }
+        static{
+            System.out.println("static")
+        }
+        {
+             System.out.println("instance ")
+        }
+      
+-----------------------------------------------------------------
+* pass by value or pass by reference?
+    - Java is a “pass-by-value” language. This means that a copy of 
+    the variable is made and themethod receives that copy. Assignments 
+    made in the method do not affect the caller.
+-----------------------------------------------------------------
+* final vs finally vs finalize()
+    - Final:   
+            - final is a keyword
+            - final is used to apply restriction on class method and variable
+            - if a class is marked as final then this class can not be inherited
+              by any other class
+    - finally: 
+            - finally is a block
+            - finally is a block which is used for exception handling along with
+              try and catch blocks
+    - Finalize: 
+            - finalize() method is protected method of java.lang.object class
+              it is inherited to every class you create in java
+            - finalize() methos id used to perform some clean up operations
+              on a object before it is removed from memory
+
+-----------------------------------------------------------------
+* where did you use static in your framework?
+    - I normally write utility classes for better reusability and make 
+      all methods in my utilities as static methods so that i can easily 
+      call them by class name.
+    - dataseUtil class has static methods to connect and run queries and 
+      get data
+-----------------------------------------------------------------
+* difference between equals method and "==" operator in java?
+    - "==":
+            reference and address comparison
+            == in case of primitives it is checking the value. as primitives are 
+            single value without any behavior. 
+    - equals()
+            content comparison
+    
+-----------------------------------------------------------------
+* what is String pool?
+    - String Pool in javais a pool of Strings stored inJava Heap Memory. Used to 
+      save space in memory.
+-----------------------------------------------------------------
+* how to reverse String in java?
+    1: 
+        String string="whatever";
+        String reverse = newStringBuilder(string).reverse().toString();
+        System.out.println(reverse);
+    2:
+        String result="";
+        for(int i = string.length()-1; i>=0; i--){
+            result = result+ string.charAt(i);
+        }
+        System.out.println(result);
+
+-----------------------------------------------------------------
+* how to reverse a sentence word by word?
+    StringBuilder stringBuilder = new StringBuilder();
+    String [] words = string.split(" ");
+    for(int j = words.length-1; j>=0; j--){
+        stringBuilder.append(words[j].append("");
+    }
+    System.out.println("reverse Words "+ stringBuilder.toString().trim());
+
+-----------------------------------------------------------------
+* String vs StringBuilder vs StringBuffer?
+                STRING          STRINGBUFFER             STRINGBUILDER
+Storage         constant        HEAP                    Heap
+Area            String pool     
+
+Modifiable      no(inmutable)   YES(mutable)            YES(mutable)
+    
+Thread Safe     YES             YES                     NO
+
+Performance     FAST            VERY SLOW               FAST
+
+Inmutable means values can not be changed once its created:
+
+-----------------------------------------------------------------
+* what is Tread-safe or Synchronized?
+    - what is tread: A sequential or single threaded program has single flow
+    - synchronized: Means that two threads can not execute the method 
+      or access the variables at the same time and the JVM takes care of
+      enforcing that. it is used to achieve thread-safety
+-----------------------------------------------------------------
+continue from page 51 
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
