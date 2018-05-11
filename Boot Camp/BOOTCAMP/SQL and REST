@@ -62,13 +62,91 @@ SQL and REST
         i use sql queries along with JDBC library in java 
 
 ----------------------------------------------------------------------------------------
+* where do we close connection in database in try catch block 
+in case we will get exeption thrown. " in catch block" 
+
+    1) in finally block
+    2) i use try-with-resources and it will automatically close
+
+        Example 1: in fanally block
+
+                try{
+                        Connetion conn = DriverManger.getConnection("URL","username","password")
+                        Statement stat = connection.createStatement(ResultSet.TYPE_...)
+                        ResultSet resu = statement.executeQuery("select * from countries");
+                }catch(SQLException e){
+                        //some code to report
+                        e.printStackTrace();
+                }finally{
+                        try{
+                        result.close();
+                        statement.close();
+                        connection.close();
+                        }catch(exception e){
+                                // some code 
+                        }
+                }
+
+        Example 2: try-with-resources 
+
+        any class or interface that extends closable or autoclosable interface
+       
+
+                try(
+                        Connetion conn = DriverManger.getConnection("URL","username","password")
+                        Statement stat = connection.createStatement(ResultSet.TYPE_...)
+                        ResultSet resu = statement.executeQuery("select * from countries");)
+                {
+                        //some code to read data from resulset 
+                }
+                }catch(SQLException e){
+                        //some code to report
+                        e.printStackTrace();
+                }
 
 ----------------------------------------------------------------------------------------
-
+* have you done any BACK END TESTING or DATABASE TESTING?(they mean API and Database)
+       
+        - Yes I have lots of experience with working with databases and
+          I am confortable with writing SQL queries. I have experience with working on relational
+          databases like ORACLE, MySQL, SQL Server.
+        
+        - Have you worked with non-relational databases? 
+                - I dont have hands on experience i know that its is like JSON 
+                  format database and i have good experience with working with JSON
+                  files. And I am quick learner and crosfunctional. 
+              
 ----------------------------------------------------------------------------------------
+* how do you create a table in SQL what are constraints?
 
+        - create table computer(
+                computer_id number primary key,
+                brand varchar2(20) not null,
+                type char(1) not null
+                );
+
+        - SQL column constraints: 
+                Primary key, foreign key, null,not null unique.
+                
 ----------------------------------------------------------------------------------------
+When you talk about your framework mention this frameworks:
 
+        Page Object model framework
+        cucumber Bdd framework
+        TestNG based 
+        Data Driven framework
+
+ ( comes from QTP / UFT style) <- do not mention much because its mostly UFT
+        Hybrid Framework
+        Keyword Driven Framework 
+
+** Tell me about your self SQL **
+
+        I am confortable with front end test automation using java and selenium
+        WebDriver, Cucumber, Maven, Testng, Junit also i am good at restful API
+        test automation using postman and restassured library in JAVA. I have rich 
+        experience with database test automation using sql queries along with JDBC library
+        in JAVA. 
 ----------------------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------------------
