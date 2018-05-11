@@ -1,0 +1,106 @@
+API BOOTCAMP
+----------------------------------------------------------------------------------------
+* what kind of database testing are you doing?
+        - I am mostly doing database validations
+        - I make changes or insert data in the front end and validate in the database
+          Data in front end matches the database
+        - i also make changes using RESTapi and verify that changes are successfull in database
+          as well
+        - I also support database migration process, My code connects to all database
+          Sybase (legacy database) using JDBC then connects to oracle (new DB )
+          and then compare records to make sure data was migrated successfully
+
+
+----------------------------------------------------------------------------------------
+* Batch jobs of application?
+    - some automated code that runs every night time and make some status changes
+      to some data
+
+    Example: coupon that is valid for  7 days. Batch job is scanning through each coupon and if 
+    coupon hit 7 days it will update the status in database as invalid. 
+----------------------------------------------------------------------------------------
+* do you have experience with RestfulAPI Testing?
+    - application in the current project needs to be integrated to other internal 
+    and external application for the integration our team developed restful api so i am testing it.
+
+    - i verify rest api end point is working as expected
+    i use postman for manual api testing and use restassured library in java for automation
+    i send post put get delete type of request and veirfy responses stasus code and response body header 
+    i also do positive and negative testing of api.
+    when i do positive testing i send valid request parameters, valid headers valid request json body
+    and verify that response stuatus code i 200 
+----------------------------------------------------------------------------------------
+* http methods/request?
+    - get: read data
+    - post: create 
+    - put: update 
+    - delete: delete
+
+    - post vs put
+    
+----------------------------------------------------------------------------------------
+* Status code
+    2×× Success
+    200 OK
+    201 Created
+
+    3×× Redirection
+    300 Multiple Choices
+    301 Moved Permanently
+    302 Found
+
+    4×× Client Error
+    400 Bad Request
+    401 Unauthorized
+    402 Payment Required
+    403 Forbidden
+    404 Not Found
+
+    5×× Server Error
+    500 Internal Server Error
+    501 Not Implemented
+    502 Bad Gateway
+----------------------------------------------------------------------------------------
+* Headers 
+    - accept, content-type, application JSON, Application XML
+----------------------------------------------------------------------------------------
+* parameters
+    - 2 types
+    - path parameters ( value will be part of URL)
+    - query / request parameters(key+value format)
+
+----------------------------------------------------------------------------------------
+* Validate/check /assert JSON body
+    - {
+        "employee_id": 100,
+        "first_name": "steven"
+    }
+
+    we use hamcrest matcher that comes with restassured library 
+    - 1.When().get(uri).then().body("first_name",equalto("steven"));
+
+    using jsonpath:
+    - 2.JsonPath json = when().get(uri).thenreturn().body().jsonpath();
+    assert.asserEquals(json.getString("last_name"),"king");
+
+
+    - 3.Using collections. HashMap
+    Response response = when().get(uri);
+    Map map = response.body().as(Map.class);
+    assert.assertEquals(map.get(job_id),"AD_PRES");
+
+    - 4.Using POJOs. create a class first
+    public class employee{}
+    Response response = when().get(uri);
+    Employee map = response.body().as(Employee.class);
+    assert.assertEquals(emp.getSalary(),24000);
+----------------------------------------------------------------------------------------
+* Serealization vs DE-Serealization
+    - serealization: convert java object to Json
+    - De-serialization: JSON to java Object
+----------------------------------------------------------------------------------------
+* Gson Parser
+    - Gson parser is used to convert json to java object or vise versa
+    - 2 useful methods from json tojjson
+    
+----------------------------------------------------------------------------------------

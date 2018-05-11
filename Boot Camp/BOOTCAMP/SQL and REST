@@ -220,31 +220,75 @@ in case we will get exeption thrown. " in catch block"
 ----------------------------------------------------------------------------------------
 * difference between Union and Union ALL 
         - we use these set operators when we need to display data from multiple or 2 queries
-        - UNION: removes duplicates and null values and sorts the result
+        - UNION: removes duplicates and null values and sorts the result, 
         - UNION ALL: does not remove duplicates and does not sort 
 ----------------------------------------------------------------------------------------
 * difference between Intersect and Minus
         - INTERSECT: displays common data en both queries
         - MINUS: returns records from first query that is not present in second query.
-        
+
+----------------------------------------------------------------------------------------
+* JOIN VS UNION interview question
+        - joins are used to display query from multiple tables
+        - Union is used to query data from multiple queries. 
+----------------------------------------------------------------------------------------
+* difference between GROUP BY vs ORDER BY
+        - group by is used whenever we work with group functions it will help to
+        create sub groups within a group
+        - order by is used to sort either descending and ascending
+----------------------------------------------------------------------------------------
+* difference between HAVING vs WHERE
+        - when ever our condition includes a group founction 
+        example: HAVING max(salary) > 9000;
+
+        - where is used to filter the results and when we do not use group function
+        example: where employee_id = 234;
+----------------------------------------------------------------------------------------
+* Display 5th row from table ( CORE RELATED SUB QUERY)
+
+        - we need to use correlated subquery
+        - inner query will get columns along with rownumber and outer query will look
+        for specific row number
+
+        example 1: 
+        select *
+        from (select employee_id,first_name, rownum as rn from employees)
+        where rn = 5;
+
+        example 2:
+        (select * from employees where rownum <=5) 
+        minus 
+        (select * from employees where rownum <=4);
+
+        example 3: 5th largest salary questions
+        select salary from employees e1 
+        where 5= (select count(salary)
+        from employees e2 where e1.salary<=e2.salary);
+----------------------------------------------------------------------------------------
+* difference between drop vs truncate
+
+        - both are ddl commands and cannot be undone, 
+        - drop will remove data and table together
+        - truncate will remove all data but not table structure.
+        - DROP EMPLOYEES;
+        - TRUNCATE EMPLOYEES;
+
+----------------------------------------------------------------------------------------
+* Commit commands
+        - when ever we make changes to database we can commit to save changes
+
+----------------------------------------------------------------------------------------
+* do you know SQL?
+        - yes I have experience and i am confortable with writing SQL queries DDL and DML
+        commands. currently working with oracle database that is running in amazon cloud server.
+
+        - WHAT IS DDL? data definition language : create alter drop truncate
+        - DML data manipulation languages: select delete insert update
 ----------------------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------------------
-
-----------------------------------------------------------------------------------------
-
-----------------------------------------------------------------------------------------
-
-----------------------------------------------------------------------------------------
-
-----------------------------------------------------------------------------------------
-
-----------------------------------------------------------------------------------------
-
-----------------------------------------------------------------------------------------
-
-----------------------------------------------------------------------------------------
-
+* what kind of database testing are you doing?
+        - 
 ----------------------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------------------

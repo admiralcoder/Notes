@@ -158,13 +158,31 @@ Contains General Both phone call and in person Interview
             select * 
             from town
             where rownum <= 5;
-            
+
 * selfJoin interview ( )
         1.
         select emp.employee_id, emp.first_name, man.first_name, man.last_name
         from employees emp join employees man
         on emp.manager_id = man.employee_id;
 
+* difference between Intersect and Minus
+        - INTERSECT: displays common data en both queries
+        - MINUS: returns records from first query that is not present in second query.
+
+ * JOIN VS UNION interview question
+        - joins are used to display query from multiple tables
+        - Union is used to query data from multiple queries. 
+
+* Display 5th row from table ( CORE RELATED SUB QUERY)
+
+        - we need to use correlated subquery
+        - inner query will get columns along with rownumber and outer query will look
+        for specific row number
+        
+        example: 
+        - select *
+        from (select employee_id,first_name, rownum as rn from employees)
+        where rn = 5;
 
 
 
