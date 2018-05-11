@@ -1,0 +1,143 @@
+Contains General Both phone call and in person Interview
+
+* Technical phone 
+    Let's think you're working on the one function to test. For example,
+    it is payment system, however, one of the payment function like PayPal 
+    is not working. I mean, Paypal is down. How do you test in this situation? 
+
+
+    What is mock testing? 
+
+
+    What is the responsive website?
+
+
+    How do you get data using the Cucumber? 
+
+
+    How do you do API testing? 
+
+    Tell me about yourself? 
+
+    What is POM? 
+
+    How do you get test Data?
+
+* Phone Interview
+    1. Tell me about yourself?
+
+    2. Whats your roles?
+
+    3. Did you create your framework? 
+
+    3.1. Do you do back-end testing? 
+
+    4. How do you prepare test data? (Data virtualization, Delphix)
+
+    5. Tell me about your regression suite? How big is it? 
+
+    6. Are you using Selenium Grid? 
+
+    7. How do you initialize Selenium WebDriver? 
+
+    8. What kind of Browser do you use? 
+    9. What kind of Locators do you know in Selenium?
+    10. How do you handle the dropdown list? 
+    11. How do you handle the popups in Selenium? 
+    12. Are you familiar with SQL queries?
+    13. Tell me about API testing?
+    14. How do you do API testing? 
+    15. You have many endpoints and you need to test them. What do you do? (steps)
+    16. Do you familiar with Swagger? 
+    17. There were questions about SOAP UI as well. (They are using it)
+
+* Phone Interview
+    Tell me about your self?
+
+    What do you mean by Cross functional?
+
+    How do you use back end testing?
+
+
+    What is Rest-Assured?
+
+    Are you familiar with Collections?
+
+    What is Map?
+
+    What is back end testing?
+
+    What is Big O Notation?
+
+    Write an Xpath that would find third row of the second table?
+
+    Programming challenge :
+
+    Write a method which takes in a space-separated string of integers, 
+
+    and prints out the number of occurrences of each integer. 
+        input: "1 5 9 2 1 5 8 1"
+        Output: "1(3) 2(1) 5(2) 8(1) 9(1)"
+    write a method which prints out the numbers from 1 to 30. For 
+    numbers which are a multiple of 3, print “BLA” instead of the number. 
+    For numbers which are a multiple of 5, print “BLABLA” instead of the number. 
+    For numbers which are a multiple of 3 and 5, print “CyberTek” instead of the 
+    number. 
+
+* Face to face
+    1)Tell me about your background?
+    2)Cucumber?
+    3)What does it mean DataTable inside you feature files?
+    4)Scenario vs Scenario Outline
+    5)Map and Map.Entry?
+    6)Selenium?
+    7)Synchronization (Implicit/Explicit/Fluent Wait)
+    8)Different btw Fluent and Explicit?
+    9)How to connect to Database?
+    10)Abstract vs Interface? (Where you used in your project)
+
+    There is some question (once I remember I will post it)
+
+* face to face
+    1.Tell me about yourself ?
+
+    2.Tell me about your project ?
+
+    3.Agile environments?
+
+    4. How you do your back end testing ?
+
+    5.What is overriding ? 
+
+    6. HashMap?  HashSet ?what is the difference with hashMap and hasTable ? 
+
+    7. The different between final and finally ?
+
+    8. The spring is ending but you find a bug ,  what you going to do ? you will close the bug or continue on next spring ?
+
+    9. Sometimes the developer is not agree with you , how you handle this kind of situation ?
+
+    10.The requirement said the password should be 4 digit ,but when you put your first name it is passing  (my name is longer then 4 digit ) is that a bug ? 
+
+    11.  The spring is ending , but you find a bug , and the developer said it is not on the requirement . what should you do ? 
+
+    12. Do you have any experience with SAS. 
+
+    13. mathematic skill? (just a conversation , he said the project will deal with  huge numbers , how is you mathematic?)
+
+    14. why you looking for the job ?
+
+    15. When is your project end ? how soon you can start ? 
+
+    during the interview I asked some question :
+
+    1. how about your team ?
+
+    2.can you tell me about your project ? 
+
+
+
+
+
+
+
