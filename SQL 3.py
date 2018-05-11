@@ -1,6 +1,6 @@
 SQL 3
 04/10/2018
-
+Review
 
 example: AUTOZONE - customer bob goes there and he wants alternator for honda 2015 civic
 				    
