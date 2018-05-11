@@ -135,8 +135,35 @@ Contains General Both phone call and in person Interview
 
     2.can you tell me about your project ? 
 
+* technical interview skype
+    1.	Write a SQL query to find how many records are there in Town table where 
+    “TOWN_NAME” has “ell” in them?
+            - select count(*) 
+            from town 
+            where town_name like '%ell%'; 
 
+    2.	Write a SQL query to find how many occurrences of each “COUNTRY_CODE” are 
+    there in the Town table?
+            - select country_code,count(*)
+            from town 
+            Group by country_code;
 
+    3.	Write a SQL query to find the “TOWN_NAME” where there are non-alphanumeric 
+    characters?
+            select(*)
+            from town
+            where town_name not like '%[^a-zA-Z0-9]%';
+
+    4.	Write a SQL query to select the first 5 records from Town table?
+            select * 
+            from town
+            where rownum <= 5;
+            
+* selfJoin interview ( )
+        1.
+        select emp.employee_id, emp.first_name, man.first_name, man.last_name
+        from employees emp join employees man
+        on emp.manager_id = man.employee_id;
 
 
 

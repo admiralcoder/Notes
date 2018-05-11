@@ -2,6 +2,26 @@
 
 SQL and REST
 ----------------------------------------------------------------------------------------
+When you talk about your framework mention this frameworks:
+
+        Page Object model framework
+        cucumber Bdd framework
+        TestNG based 
+        Data Driven framework
+
+ ( comes from QTP / UFT style) <- do not mention much because its mostly UFT
+        Hybrid Framework
+        Keyword Driven Framework 
+
+** Tell me about your self SQL **
+
+        I am confortable with front end test automation using java and selenium
+        WebDriver, Cucumber, Maven, Testng, Junit also i am good at restful API
+        test automation using postman and restassured library in JAVA. I have rich 
+        experience with database test automation using sql queries along with JDBC library
+        in JAVA. 
+
+----------------------------------------------------------------------------------------
 * data driven Testing ?
     - data driven framework when do we do it?
 
@@ -127,36 +147,86 @@ in case we will get exeption thrown. " in catch block"
 
         - SQL column constraints: 
                 Primary key, foreign key, null,not null unique.
+
+        - Describe computers -> to display table information metadata of table
+                Describe computers;
+
+        - insert data in SQL database 
+                insert into computers values( 123 ,'HP','L');
+                select * from computers
+
+
+----------------------------------------------------------------------------------------
+* SQL technical interview
+        1.	Write a SQL query to find how many records are there in Town table where 
+        “TOWN_NAME” has “ell” in them?
+                - select count(*) 
+                from town 
+                where town_name like '%ell%'; 
+
+        2.	Write a SQL query to find how many occurrences of each “COUNTRY_CODE” are 
+        there in the Town table?
+                - select country_code,count(*)
+                from town 
+                Group by country_code;
+
+        3.	Write a SQL query to find the “TOWN_NAME” where there are non-alphanumeric 
+        characters? REGEX is used for matching some formats like 10 number etc
+                select(*)
+                from town
+                where town_name not like '%[^a-zA-Z0-9]%';
                 
-----------------------------------------------------------------------------------------
-When you talk about your framework mention this frameworks:
 
-        Page Object model framework
-        cucumber Bdd framework
-        TestNG based 
-        Data Driven framework
-
- ( comes from QTP / UFT style) <- do not mention much because its mostly UFT
-        Hybrid Framework
-        Keyword Driven Framework 
-
-** Tell me about your self SQL **
-
-        I am confortable with front end test automation using java and selenium
-        WebDriver, Cucumber, Maven, Testng, Junit also i am good at restful API
-        test automation using postman and restassured library in JAVA. I have rich 
-        experience with database test automation using sql queries along with JDBC library
-        in JAVA. 
-----------------------------------------------------------------------------------------
+        4.	Write a SQL query to select the first 5 records from Town table?
+                select * 
+                from town
+                where rownum <= 5;
 
 ----------------------------------------------------------------------------------------
+* Inner JOIN interview
+                - when we query data from multiple tables we need joins and when we need 
+                to find matching records we use inner joins.
+                - inner join is used when we need to display data from multiple tables.
+                and it will return matching records. 
+        
+        1.Write a SQL query to find the salary for the people working in the QA department 
+        and the HR Department?
+
+                select empid, name, salary, deptid
+                from employee e join departments d 
+                on e.empid = d.empid
+                where deptid in('QA','HR');
+
 
 ----------------------------------------------------------------------------------------
+* selfJoin interview ( )
+        1.
+        select emp.employee_id, emp.first_name, man.first_name, man.last_name
+        from employees emp join employees man
+        on emp.manager_id = man.employee_id;
 
 ----------------------------------------------------------------------------------------
+* inner join vs outer join
+        - we need joins when ever we need query data from multiple tables
+        
+        1.Inner join returns matching records from both tables according to joining condition
+        2.outter join returns matching data plus non matching data either from right
+          or left tables.
 
+          Example: inner join
+                select last_name, department_name
+                from employees join departments
+                on employees.department_id = departments.department_id;
 ----------------------------------------------------------------------------------------
-
+* difference between Union and Union ALL 
+        - we use these set operators when we need to display data from multiple or 2 queries
+        - UNION: removes duplicates and null values and sorts the result
+        - UNION ALL: does not remove duplicates and does not sort 
+----------------------------------------------------------------------------------------
+* difference between Intersect and Minus
+        - INTERSECT: displays common data en both queries
+        - MINUS: returns records from first query that is not present in second query.
+        
 ----------------------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------------------
