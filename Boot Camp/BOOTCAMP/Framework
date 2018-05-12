@@ -216,15 +216,35 @@ for the automation?
         2. i had to generate test data. in my job i had to generate 
         test data for parking tickets i had to use selenium to fill the form to create 
         parking tickets in the test environment. 
+    - java faker
+    - apache also has couple dips
 
 --------------------------------------------------------------------------
+* what coding standards to you have?
+    - in my project we had a formatter for code format. everyone had to use the same 
+    formating standard.
+    - in my company one of the things we check during the code review
+    is the coding standards
 
 --------------------------------------------------------------------------
-
+* how many environment do you have?
+    - in my project we had the following enviroments:
+        1. dev enviroments
+        2. QA/Test enviroment- this is where i test
+        3. Staging enviroment
+        4. 
 --------------------------------------------------------------------------
-
+* How do you code review?
+    - in my company we use cricuable to do code reviews. it only works
+        with bitbucket
+    - In github it is different:
+        - you check in code
+        - create a pull request
+        - Some will review the pull request and merge
 --------------------------------------------------------------------------
-
+* Who will review your code?
+    - other testers
+    - test lead. 
 --------------------------------------------------------------------------
 
 --------------------------------------------------------------------------
