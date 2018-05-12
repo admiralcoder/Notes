@@ -42,7 +42,7 @@ May 12, 2018
 
 
 --------------------------------------------------------------------------
-* describe your framework ( CUCUMBER BDD FRAMEWORK)
+* describe your framework 2 ( CUCUMBER BDD FRAMEWORK)
     - TESTNG / JUNIT ( ONE OF THEM NOT BOTH)
     - CUCUMBER
     - JAVA
@@ -107,27 +107,96 @@ May 12, 2018
     - Scenario: 1 
     - Scenario: 2
 --------------------------------------------------------------------------
+* Scenario Outline
+    - Scenario outline: search
+    - Given I am there 
+    - And I search for "<item>"
+    Example: 
+    |item|
+    |wooden spoon|
+    |carbon fiber spoon|
+
+    * the scenario will run twise first time it will search for wooden spoon
+    next time will search for carbon fiber spoong
+
 
 --------------------------------------------------------------------------
+* what is test base class? and how do you implement in your framework?
+    - When we talk about test base class we talk about framework 1 only 
+    - test base class is class where i have most used methods in my test
+      my test classes extend the test base class and thus have access to those
+      methods this helps us make my code reusable
+
+    - Before/after test methods
+    - wait/synchronization utility methods
+    - switchToWindow(title)
+    - WebDriver driver;
 
 --------------------------------------------------------------------------
+* How to re-run the failed tests again?
+    - it is different depending on what tools are being used?
+          THIS ID DONE IN POM *
+        - In TESTNG : framework (not cucumber), failed tests are reported in the
+                    testng_failed.xml file in target folder. we can add
+                    this file in the pom file so that maven will try to run the 
+                    failed tests every time. it will only run when there are failures 
+                    in the test.
+
+        
+            
+--------------------------------------------------------------------------
+* how to rerun the failed tests again in cucumber?
+    - to re-run the failed tests in cucumber we use the re-run option 
+      in the CukesRunner
+        1: Add the re-run to cukes runner. this option will create a file with a 
+           list of failed tests.
+        2: create a second runner class which points to file with a list of 
+           failed tests
+        3: Add the second runner in pom file
+           
+--------------------------------------------------------------------------
+* how to run failed tests again in Jenkins?
+    - in jenkins there are plugin that are run the failed tests. Unit cases(not cucumber)
+    - 
 
 --------------------------------------------------------------------------
+* how to run tests selectively cucumber?
+    - tags keyword the CukesRunner
+    - feature keyword the CukesRunner
+    - tags and features can also be passed using the command line
+        - mvn clean test -Dcucumber.options="--tags ~@nonexistantTag"
 
 --------------------------------------------------------------------------
+* please choose one user story from your current application and walk me through 
+for the automation?
+    - //come up with 1 or 2
 
 --------------------------------------------------------------------------
+* What is your thropy bug?
+    - //come up with 1 or 2
 
 --------------------------------------------------------------------------
+* How you intergrate selenium with JIRA?
+    - selenium does not have a built in integration with JIRA. but there are plugins that 
+    integrate selenium testing framework with jira.
+    - XRAY(jira plugin, Jenkins plugin)
+    - Zephyr(jira plugin)
 
 --------------------------------------------------------------------------
-
+* when do you do automation in your sprint?
+    - When developers are done with their part
+    - When code is deployed to QA/test environment
+    - when all manual test are done
+    - if you are test in the staging/UAT environment you wont be testing
+      stories which are being develop.
+    - You are in  team of testers. all the stories you get in your team are 
+      testing stories and ready to be tested.
+    - you are part of a mixed team with testers and developers in this case
+      you will test features which are being developed so you want for developer
+      to finish the code changes and push to QA environment  
 --------------------------------------------------------------------------
-
---------------------------------------------------------------------------
-
---------------------------------------------------------------------------
-
+* Have you set up any job in jenking?
+    - 
 --------------------------------------------------------------------------
 
 --------------------------------------------------------------------------
