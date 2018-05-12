@@ -1,0 +1,300 @@
+Marouf May 10th, 2018
+Boot CAMP
+==== SELENIUM REVIEW ====
+
+* what is test automation and what are the benefits?
+	- no human interaction
+	- fast
+	- reliable
+	- scalable
+	- data driven testing
+
+* what can be automated?
+	- Something stable
+	- Smoke / sanity test
+    - functional test
+    - Test data creating
+    - API
+    - Database
+
+* what Test case should be automated?
+    - must be stable test case
+    - should be repetitive, can be used more than once
+    - should not need any human interaction
+    - should have a value, High ROI
+
+* What are the common test automation tools?
+    - Watir, selenium, UFT
+
+* What is SELENIUM?
+    - selenium is a tool that automates browser, it is used 
+    for testing
+
+* Advantages of selenium?
+    - Open source
+    - interact with web application
+    - supports multiple browsers, operating systems
+    - supports different languages
+    - reusability
+    - community
+
+* Disadvantage of Selenium?
+    - it only supports web applications
+    - no official support / no help desk
+    - can not work with graphics, capchas, bar codes, shapes
+    - no built in reporting tool
+    - hard to master requires develoepr level knowledge
+    - hard to write good locators
+    - hard to synchronize
+
+* what we dont do in selenium?
+    - performance, load, stress testing, manual, ad hoc testing
+    usability pure database testing (if we only test the db it self)
+    , unit tests.. we dont do it. look and feel based testing
+    color shapes static testing.
+    
+* what is a locator in selenium?
+    - in selenium locator is a means of finding a element in html
+        - ID
+        - name
+        - css
+        - Xpath
+        - tagName
+        - className
+        - linkText
+        - partialLinkText
+* what is xpath?
+    - is one of the locators in selenium 
+
+* what is difference between Absolute and Relative Xpath?
+    - Absolute:
+        - Starts with /, starts looking from the root
+        element of the html document
+    - Relative:
+        - Starts with // looks for element in any part of 
+        the page
+
+* which situations are you going to use Xpath?
+    - when we can not use unique information such as ID, name, 
+    tags, class ..
+    - when dealing with dynamic elements: id changes every time
+    we can use contains, starts-with, ends-with
+    - when we deal with indexes 
+    - when we search by text: //span[.= 'submit']
+    - when tables xpath can handle parents child sibling
+
+* how do you choose locators?(whats the best locator)
+    - it depends on the situation on the web site, on the application
+    - If there is ID on web site yes, if no ID then Name,
+    - if it is a link:
+                    - linktext
+                    - partiallinktext
+                    - then others
+    - if its not a link:
+                    - Id
+                    - name
+                    - tagname
+                    - class
+                    - css : easy to read and write, fast 
+                    - Xpath
+
+* css vs Xpath?
+    - css: 
+        - fast easy to read and write, should be used if both 
+        cdd and xpath are options.
+    - Xpath:
+        - works with text
+    
+* what is implicit wait / explicit wait?
+    - Implicit wait:
+                - Syntax: driver.manage.timeouts.implicitlyWait(5)
+                - set once always works if it doesnt find element
+                it will wait for 5 seconds otherwise it complains
+                applies every time when findelement/s method runs
+                - The implicit wait will tell to the web driver to 
+                wait for certain amount of time before it throws a 
+                "No Such Element Exception".
+
+    - Explicit wait:
+                - sometimes we need to wait for certain event
+                such as element is visible, clickable, enabled..
+                - WebDriverWait,
+                - ExpectedConditions
+    - FluentWait:   
+                - is also a type of explicit wait. Using fluent wait
+                wecan customize the webDriverWait
+
+* what is difference between Assert and Verify?
+    - Assert:
+            -  if it fails test execution stops
+
+    - Verify:
+            - verify if it fails you make a note and continue with 
+            the test
+
+* whats difference between QUIT and CLOSE?
+    - Quit:
+        - closes the windows
+    
+    - Close:
+        - closes the current tab/window 
+
+* how selenium handles drop downs?
+    - select class is used to deal with drop down list in selenium.
+    to create a select object we need to pass a webElement as 
+    constructor. that element must have the select tag
+    - select by Index: Takes a int param, selects based on the index
+    0 based.
+    - select by visible text: takes a string, select based on the 
+    text displayed.
+    - select by value: takes a string parameter selects based on
+    the value attribute of the option 
+
+* how to check the multiple selected value in dropdown?
+    - select carsList = new Select(el)
+    - carList.getSelectedOption(): returns the selected option
+    a list(List<WebElement>)
+    - carList.getFirstSelectedOption  <- method that returns
+    the selected option(the webElement)
+    - asserEquals("Wooden Spoon", carList.getFirstSelectedOption().getText())
+
+* how do you verify all options in dropdown?
+    - Select stateList = new Select(el)
+    - stateList.getOptions(): returns all the available options
+    selected or not
+
+* how to work with dropdown without the select tag?
+    - if they dropdown list has no select tag we can not use the
+    select class
+    - thread the dropdown list and its options as separate 
+    elements locate every element separately
+    - the select an option: 1 find and click 
+
+* What is the syntax for switching frame?
+    - its html page inside html page / we have to treat them as 
+    different pages.
+    - Iframe/frame : tags for frames. Frame is a html document
+    inside another html document.
+    - Web driver handles one page at a time to control another frame
+    we always need to switch
+    - driver.switchTo.frame() : takes webElement -> find the iframe 
+    and pass it as a param. 
+    - driver.switchTo.frame() : takes String -> find the id or
+    name of the iframe and pass as param
+    - driver.switchTo.frame() : takes int -> find the index and pass
+    as param
+
+* what is the syntax for switching windows?
+    - to handle separate tabs/ windows we have to switch 
+    to that tab
+    - web driver handles one page html document at a time. to
+    control another tab we always need to switch
+    - to be able to switch we need to get the window handle first
+    using getWindowHandesl() method
+    - driver.switchTo.window() : takes a string -> window handle
+    - for each : driverGetWindowHandles:
+        driver.switchTo.window("title")
+        if driver.getTitle == expected title
+            break;
+    - selenium needs the windows handle to switch tabs it doesn not
+    use the title. to switch using title we still switch using the 
+    window handle first then check the title.
+
+* What operations can you do using actions class?
+    - Actions class lets us do advanced mouse and keyboard 
+    operations.
+    - Hover over element / move to element 
+    - scroll up/down
+    - double click
+    - right click
+    - drag and drop
+    - keyboard conbinations
+
+* what is the syntax for double click actions?
+    - perform any actions against an web element using actions class
+    we need to locate the element first
+        WebElement el = driver.findElement
+        Actions actions = new Actions(driver)
+        actions.doubleClick(el);
+
+        actions.moveTO(el)
+        actions.doubleClick
+
+* what is the syntax for uploading a file?
+    - in order to upload file using selenium  we need to locate
+    the upload button in html. the element will have tag
+    input then we do sendKeys by passing the path to file
+    which 
+        WebElement upload = driver.findElement
+        upload.sendKeys("C:/user/me/file.txt")
+
+* sometimes sendKeys path does not work
+    - you have to use the robot or autoid
+    - to fix you have to build a dynamic path for file inside
+    our project
+    - path of the file in the project : 
+    String projectDir= System.getProperty("usr.dir")
+    path of the file in the project : 
+    "src/test/resources/test_data/myfile.txt"
+    - Element.sendKyes(projectDir+file)
+
+* have you done any cross browser testing?
+    - yes
+    - always mention that you have a control file for keywords
+    like browserType main url password username enviroment. 
+
+* have you done any headless browser testing?
+    - its a browser that does not open it runs as a background service
+    or program. They are fast
+    - html unitdriver: headless browser that comes from selenium
+        webdriver driver = new hemlUnitDRiver();
+    - phanthomjsDriver: thrid party driver
+        webdriver driver = new htmlUnitDriver();
+    - taking screenshots will still work with headless browser
+
+* how you resolve certification issue?
+    - IF you are using CHROME, Internet Explorer
+        DesiredCapabilities capability = DesiredCapabilities.chrom();
+        capability.setcapability(capability.ACCEPT_SSL_CERTS, true );
+        System.setProperty("webdriver.chrome.driver","E:/chromedriver.exe")
+        driver = new ChromeDriver(capability);
+    - more examples badssl.com
+
+* How will do you performance Stress Security SQL injection testing?
+    - selenium engineer does not do any of these tests. these tests are done by
+    experts trained in these tools.
+
+* how do you handle Js alerts?
+    - if the alert on the browser comes from javaScript we use the Alert Class.
+    - Alert alert = driver.switchTo.alert();
+    - alert.accept();
+    - alert.dismiss();
+    - alert.sendkeys();
+
+* how you handle browser popup?
+    - Treat it as another webElement to close find the cancel link 
+    to the x icon and click();
+
+* how you handle windows/OS pop ups?
+    - using the robot or the AutoIT
+
+* Verify element is not displayed?
+    - element = driver.findElement()
+    - element.isDisplayed();
+    - driver.findElement().isDisplayed() -> this line will throw exeption if the element
+    is not in the html
+         try{
+             find
+             return if displayed
+         }
+         Catch(element not fund)
+         {return true}
+    
+* Why I can not find element?
+    - locator changed
+    - there is an iframe
+    - waiting time : page is loading slowly
+    - element is dynamic : locator can not find it
+    - page is not fully loaded/opened 
+    - page changes and that element does not exist anymore
+    
