@@ -209,7 +209,14 @@ for the automation?
     the build number.
 --------------------------------------------------------------------------
 * How do you GET TEST DATA?
-    - 
+    - delphix -> tool/or company that provides test data
+    - in my project there were 2 sources for test data
+        1. Developers got the data from production database changed the sensitive 
+        information
+        2. i had to generate test data. in my job i had to generate 
+        test data for parking tickets i had to use selenium to fill the form to create 
+        parking tickets in the test environment. 
+
 --------------------------------------------------------------------------
 
 --------------------------------------------------------------------------
