@@ -1,0 +1,106 @@
+Rest API PRACTICE 1
+
+* use this links to practice:
+String uri ="http://34.223.219.142:1212/ords/hr/employees";
+String uri2 = "http://34.223.219.142:1212/ords/hr/countries";
+String uri3 = "http://34.223.219.142:1212/ords/hr/countries/US";
+String uri4 ="http://34.223.219.142:1212/ords/hr/employees/1231";
+String uri5 ="http://34.223.219.142:1212/ords/hr/employees/100";
+
+
+
+Example 1 based on employees(use postman)
+
+1: When i send a GET request  to REST Url "uri"
+   Then Status code should be 200
+
+2: When i send a Get request to rest url " uri2 "
+   Then response status should be 200
+   Then I should see JSON Response. 
+
+3: When i send a get request to rest api "uri3"
+   and accept type is application json 
+   then response status should be 200
+
+4: When i send a get request to rest url: "uri4"
+    and accept type is application json 
+    then response status should be 404
+
+5: When i send a get request to rest url: "uri5"
+    and accept type is json
+    then status code is 200
+    and response contesnt should be json
+
+6: Given accept type is json 
+    when i send a get request to rest url : "uri5"
+    then status code is 200
+    and response content should be json
+    and first name should be Steven
+    and employee id should be 100 
+
+========================================================================
+
+Answers:
+1: 	@Test
+    public void test1() {
+    when().get(uri2)
+    .then().statusCode(200)//status code
+    .contentType(ContentType.JSON);
+    }
+
+2: 	@Test
+    public void test3() {
+    with().accept(ContentType.JSON)
+    .when().get("http://34.223.219.142:1212/ords/hr/countries/US")
+    .then().statusCode(200);
+    }
+
+3: 	@Test
+    public void test5() {
+    with().accept(ContentType.JSON)
+    .when().get("http://34.223.219.142:1212/ords/hr/countries/US")
+    .then().statusCode(200);
+    }
+
+4: 	@Test
+    public void  test6() {
+    with().accept(ContentType.JSON)
+    .when().get("http://34.223.219.142:1212/ords/hr/employees/1231")
+    .then().statusCode(404);
+    }
+
+5: 	@Test
+    public void test7() {
+    given().accept(ContentType.JSON)
+    .when().get("http://34.223.219.142:1212/ords/hr/employees/100")
+    .then().statusCode(200)
+    .and().contentType(ContentType.JSON);
+    }
+6: 	@Test
+    public void test8() {
+    given().accept(ContentType.JSON)
+    .when().get("http://34.223.219.142:1212/ords/hr/employees/100")
+    .then().statusCode(200)
+    .and().contentType(ContentType.JSON)
+    .and().assertThat().body("first_name", Matchers.equalTo("Steven"))
+    .and().assertThat().body("first_name", MatchersequalTo(100));
+
+    }   
+
+========================================================================
+
+IMPORTS:
+
+import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.when;
+import static io.restassured.RestAssured.with;
+
+import org.hamcrest.Matcher;
+import org.hamcrest.Matchers;
+import org.testng.annotations.Test;
+
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+import io.restassured.http.ContentType;
+import static io.restassured.RestAssured.*;
+
