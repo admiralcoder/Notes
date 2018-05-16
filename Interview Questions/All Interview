@@ -896,7 +896,7 @@ Boot CAMP
         ccc and xpath are options.
         - does not support index
         - does not support text
-    - Xpath:
+    - Xpath: 
         - works with text
         - supports index
         - xpath has more convination so its powerful but it can get ugly. 
@@ -945,6 +945,10 @@ Boot CAMP
     text displayed.
     - select by value: takes a string parameter selects based on
     the value attribute of the option 
+    
+    - example: WebElement element = driver.findelement(by.id"dropdown")
+    Select list = new Select (element)
+    list.getFirstSelectedOption;
 
 * how to check the multiple selected value in dropdown?
     - select carsList = new Select(el)
