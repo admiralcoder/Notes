@@ -866,7 +866,7 @@ Boot CAMP
         - Starts with // looks for element in any part of 
         the page
 
-* which situations are you going to use Xpath?
+* In which situations are you going to use Xpath?
     - when we can not use unique information such as ID, name, 
     tags, class ..
     - when dealing with dynamic elements: id changes every time
@@ -893,9 +893,13 @@ Boot CAMP
 * css vs Xpath?
     - css: 
         - fast easy to read and write, should be used if both 
-        cdd and xpath are options.
+        ccc and xpath are options.
+        - does not support index
+        - does not support text
     - Xpath:
         - works with text
+        - supports index
+        - xpath has more convination so its powerful but it can get ugly. 
     
 * what is implicit wait / explicit wait?
     - Implicit wait:
