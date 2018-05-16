@@ -599,19 +599,189 @@ Example:
       to work with them and assert that they are correct and exptected.
       So What I did was I created multiple POJOs to match my app data.
       And sometimes, I need unique POJO objects, I override hashCode and equals methods.
+
+    - How did you use data structures in automation?
+      In my project, I had to validate data from web-tables, database, JSON , 
+      Excels etc. As they all come in different formats, It was challenging to 
+      work with them and assert that they are correct and exptected.
+      So I stored all data from different sources into Java Data structures. 
+      like Lists, Maps etc. and compared/asserted to expected.
+
+    = Example: 
+        Employee emp1 = new Employee(100); 
+        Employee emp2 = new Employee(100); 
+        Employee emp3 = new Employee(110);
+        System.out.println(emp1.equals(emp2));
+
+        Integer i1 = new Integer(100); Integer i2 = new Integer(100);
+        System.out.println(i1.hashCode());
+        System.out.println(i2.hashCode());
+        Set<Employee> set = new HashSet<>(); set.add(emp1);
+        set.add(emp2);
+        set.add(emp3);
+        System.out.println(set.size());
+
+        class Employee {
+        private int id;
+        public Employee(int id) { this.id=id;
+        }
+        public int getId() {
+        return id;
+        public void setId(int id) {
+        this.id = id;
+        } }
+        @Override
+        public int hashCode() { return id;
+        }
+        @Override
+        public boolean equals(Object other) {
+        return this.id == ((Employee)other).id;
+        }
 -----------------------------------------------------------------
-* 
+* How do you sort an object that you created?
+    - I implement Comparable interface and override compareTo method. 
+    Then whenever I store my objects into a List then use Collections.Sort 
+    it will be able to sort. Also I can store my objects into a TreeSet or TreeMap.
+
+    public static void main (String[] args){
+
+        Employee emp1 = new Employee(500);
+        Employee emp2 = new Employee(100);
+        Employee emp3 = new Employee(110);
+        List list = new ArrayList<>();
+        list.add(emp1);
+        list.add(emp2);
+        list.add(emp3);
+        Collections.sort(list);
+        for (Object object : list) {
+            System.out.println(object);
+        }
+    }
+
+}
+class Employee implements Comparable<Employee>{
+    private int id;
+    public Employee(int id) {
+        this.id=id;
+    }
+    public int getId() {
+        return id; }
+    public void setId(int id) {
+        this.id = id;
+    }
+    @Override
+    public int hashCode() {
+        return id;
+    }
+    @Override
+    public boolean equals(Object other) {
+        return this.id == ((Employee)other).id;
+    }
+    @Override
+    public int compareTo(Employee emp) {
+        if(this.id > emp.id) {
+            return 1;
+        }else if(this.id < emp.id) {
+            return -1;
+        }
+        return 0; }
+    @Override
+    public String toString() {
+        return id+"";
+    } 
+}
 -----------------------------------------------------------------
-
+* ArrayList vs LinkedList
+    - Arraylist is ordered collection like array.
+    - linkedList consists of nodes:
+        1: Singly Linked Linked List
+        value + pointer to next node
+        2: doublyLinked LinkedList: 
+        Value + pointer to previous node and pointer to next node
 
 -----------------------------------------------------------------
+* ArrayList vs Vector?
+    - They both implement List Interface and maintains insertion order
+    - ArrayList
+        - is not synchronized
+        - its fast because its not synchronized
+    - Vector
+        - is synchronized
+        - slow because its synchronized
+-----------------------------------------------------------------
+* HashSet vs HashMap
+    - HashSet stores unique elements
+    - HashSet implements Set
+    - HashSet stores Single Objects
+
+    - HashMap stores unique keys, and duplicated values
+    - HashMap implements Map
+    - HashMap stores Key, Value paired objects
+-----------------------------------------------------------------
+* Hashtable vs HashMap
+    - Both key + value 
+    - both implement MAP
+    - HashMap: Not Synchronized, only 1 null key and multiple null values
+    - Hashtable: its synchronized, no null keys or values 
+-----------------------------------------------------------------
+* Stack vs Queve
+    - queve: first in first out
+    - Stack: last in first out 
+--------------------------------------------------------------
+* treeset vs TreeMap
+    - TreeSet: Can contain only unique values
+    - is sorted in ascending order
+    - TreeMap: can contain only unique keys.
+    - keys are sorted in ascending order
+-----------------------------------------------------------------
+* Exception handling in java?
+    - Depending on situation, we can use try catch finally blocks.
+
+        TRY : Code that might throw some exception
+
+        CATCH: We define exception type to be caught
+        And what to do if exception happens in TRY block code
+
+        FINALLY: Code that always runs , regardless if there is Exception or no.
+
+        FINALLY block: WILL NOT RUN if JVM crashes, or System.exit(0) Is present 
+        in try or catch blocks. Clean up code, to close some connections, close 
+        open files etc
+
+        example: 
+        public static void testCatch() {
+            try {
+               int i = 4/0;
+            }catch(Exception e) {
+               return;
+            }finally {
+               System.out.println(“FINALLY!”);//will run
+            }
+  }
+--------------------------------------------------------------
+* What is the parent of all exceptions?
+    - Throwable class is parent
 
 -----------------------------------------------------------------
-
+* What types of Exeception do you know?
+    
+    - CHECKED -> You handle or declare, otherwise will Not compile.
+    - UNCHECKED -> Subclasses of RUNTIMEEXCEPTION. And optional to handle or no.
+--------------------------------------------------------------
+* what is throw vs throws
+    -THROW VS THROWS:
+      THROW : -> CREATES AN EXCEPTION OBJECT
+      throw new RuntimeException();
+      THROWS -> goes to method signature, And declares that a method 
+      might throw And exception
 -----------------------------------------------------------------
+* Types of exceptions you faced in your project
+    - 
+    JAVA : NULLPOINTER EXCEPTION, ILLEGALARGUMENT, CLASSNOTFOUND, 
+    FILENOTFOUND, CLASSCAST, ARITHMETIC, INDEXOUTOFBOUNDS,.. SQLEXCEPTION, IOEXCEPTION
 
-
-
-
-
-
+    SELENIUM: NOSUCHELEMENT, STALEELEMENT, NOTCLICKABLE, NOTVISIBLE, 
+    TIMEOUTEXEPTION, WEBDRIVER, ILLEGALSTATE EXP, NO SUCHWINDOW, ALERTNOTFOUND...
+    
+    CUCUMBER: PENDINGEXCEPTION, DUPLICATE METHOD IMPLEMENTATION EXP,
+--------------------------------------------------------------
