@@ -41,6 +41,7 @@ Interview Questions
                                         Method
 -----------------------------------------------------------------
 * What is garbage collector and how many types?
+
     - Automatic garbage collection is the process of looking at heap 
     memory identifying which objects are in use and which are not 
     and deleting unused objects
@@ -419,17 +420,50 @@ Example:
        overriding = same type or sub type
        
 -----------------------------------------------------------------
-
+* Can you override a static method?
+    - No static methods can not be overriden, they can only be
+      hidden. 
 -----------------------------------------------------------------
-
+* What is static binding vs dynamic/runtime binding?
+    - Static binding is overloading and 
+    - dynamic binding is method overriding.
 -----------------------------------------------------------------
-
+* What is polymorphism ? where did we use it on framework?
+    - Polymorphism is the ability of an object to take on many forms. 
+      The most common use of polymorphism in OOP occurs when a parent 
+      class reference is used to refer to a child class object. 
+     
+        - DYNAMIC POLYMORHISM - OVERRIDING
+        - STATIC POLYMORHISM - OVERLOADING
 -----------------------------------------------------------------
+* Data Structures and Why we need it 
+    - Data structures are way of organizing data for efficient 
+      manipulation: Insertion , searching, reading , deletion of 
+      data.
 
+    - I always use java data structures for reading data and storing 
+      data from our application , database, or API.
 -----------------------------------------------------------------
+* How do you create an Array or dynamic array?
+    - int [] nums = new int [7];
+      nums [0] = 100;
+      nums [1] = 100;
+      nums [2] = 100;
+      nums [3] = 100;
+      nums [4] = 100;
+      nums [6] = 100;
 
+    - Java does not support dynamic Arrays
+      You have to use ArrayList for dynamism.
 -----------------------------------------------------------------
-
+* How to read unique values from Array?
+    - int [] nums = new int [7];
+    nums [0] = 44;
+    nums [1] = 32;
+    nums [2] = 100;
+    nums [3] = 100;
+    nums [4] = 7;
+    nums [5] = 7;
 -----------------------------------------------------------------
 
 -----------------------------------------------------------------
