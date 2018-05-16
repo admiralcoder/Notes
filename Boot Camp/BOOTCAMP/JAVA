@@ -464,20 +464,151 @@ Example:
     nums [3] = 100;
     nums [4] = 7;
     nums [5] = 7;
+
+    public static void main (String[] args){
+// 1st way
+        int [] nums = new int [6];
+        nums [0] = 44;
+        nums [1] = 32;
+        nums [2] = 100;
+        nums [3] = 100;
+        nums [4] = 7;
+        nums [5] = 7;
+
+        Set<Integer> set = new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            set.add(nums[i]);
+        }
+        System.out.println(set); 
+// 2nd way
+        String uniqNums="";
+        for (int n:nums) {
+            if (!uniqNums.contains(String.valueOf(n)))
+                uniqNums = uniqNums+n+" ";
+        }
+        System.out.println(uniqNums);
+    }
+-----------------------------------------------------------------
+* How to print unique values from String?
+    -   
+     public static void main (String[] args){
+
+        String str = "aaabbcccdddeereeegggg";
+        // 1st print only unique values from string
+        Set<Character> setC = new HashSet<>();
+        for (int i = 0; i < str.length(); i++) {
+            setC.add(str.charAt(i));
+        }
+        System.out.println(setC);
+        // 2nd print only unique values from string
+        String unique ="";
+        for (int i = 0; i < str.length(); i++) {
+            if(!unique.contains(str.charAt(i)+"")) {
+                unique += str.charAt(i);
+            } }
+        System.out.println(unique);
+    }
+}
+
+-----------------------------------------------------------------
+* difference between array and arraylist?
+    - Array is fixed size ArrayList is dynamic
+    - Array can store primitive type ArrayList only wrapper types and Objects
+    - Array can be multi-dimensional ArrayList is not
+    - Array is faster and ArrayList is slower 
+-----------------------------------------------------------------
+* what is Iterator and difference between for each loop?
+    - Iterator works with arrayList and not array. It will help us
+      Iterate through the elements.
+    - Difference is with iterator you can make changes(remove item)
+      to the list while iterating.
+      within for each loop we can not make changes to our list
+
+// for each loop:
+
+      int arr[] = {23,54,6,56,76,878,9};
+           for(int n : arr) {
+                System.out.println(n);
+}
+           System.out.println("================");
+
+           List<Integer> list = new ArrayList<>();
+           list.add(23);
+           list.add(2323);
+           list.add(2312);
+           list.add(2343);
+           list.add(2553);
+
+// Iterator loop: 
+
+           Iterator<Integer> it = list.iterator();
+           while(it.hasNext()) {
+                Integer n = it.next();
+                System.out.println(n);
+                it.remove();
+           }
+           System.out.println(list);
+           System.out.println("================");
+           for(Integer n : list) {
+                System.out.println(n);
+                //list.remove(n);
+}
+-----------------------------------------------------------------
+* How to join 2 arrays into single array?
+    - I am sure there are different ways to solve this solution I 
+      am coming up at at this point is:
+
+    1. I would create a thrid a array with the size of 
+    2. other other arrays and assign each value from Both arrays 
+       into a 3rd array using a loop.
+    3. I can create an array list and loop through each Item in 
+       2 arrays and add them to arraylist,
+       Then I can convert Arraylist into array if needed.
+
+
+-----------------------------------------------------------------
+* List vs Set vs Map interfaces
+    - LIST: - can store duplicate values, 
+            - maintains /keeps the insertion order 
+            - list allows any number of null values 
+            - Comes from collection interface
+            - from list we can read a certain value by index
+    - SET : - can only store unique values. 
+            - set does not maintain order
+            - set allows only 1 null 
+            - Comes from collection interface
+            - set doesnt allow that
+
+    - MAP : is a key+value format and keys are always unique 
+            - map read value by passing key
+            - map can have single null key but multiple null values
+-----------------------------------------------------------------
+* what is hashcode and equals method used for?
+    - I created multiple POJO(Plain old Java object) classes
+      to store data that came from different sources.
+      Like Database, API JSon format, Excel, CSV file, Webtable.
+
+    - And whenever I needed unique set of pojos, I had to override 
+      hashCode and equals methods, that by storing into HASHSET , 
+      I was sure that only unique objects are being stored.
+    
+    - Any challenges you had and how did you solve them?
+      When did you have to override hashCode and equals methods?
+      In my project, I had to validate data from web-tables, database, JSON ,
+      Excels etc. As they all come in different formats, It was challenging
+      to work with them and assert that they are correct and exptected.
+      So What I did was I created multiple POJOs to match my app data.
+      And sometimes, I need unique POJO objects, I override hashCode and equals methods.
+-----------------------------------------------------------------
+* 
+-----------------------------------------------------------------
+
+
 -----------------------------------------------------------------
 
 -----------------------------------------------------------------
 
 -----------------------------------------------------------------
-
------------------------------------------------------------------
-
------------------------------------------------------------------
-
-
-
-
-
 
 
 

@@ -14,6 +14,7 @@ Contains General Both phone call and in person Interview
 
     How do you get data using the Cucumber? 
 
+        Scenario outline, 
 
     How do you do API testing? 
 
