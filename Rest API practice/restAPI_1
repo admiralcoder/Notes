@@ -6,6 +6,7 @@ String uri2 = "http://34.223.219.142:1212/ords/hr/countries";
 String uri3 = "http://34.223.219.142:1212/ords/hr/countries/US";
 String uri4 ="http://34.223.219.142:1212/ords/hr/employees/1231";
 String uri5 ="http://34.223.219.142:1212/ords/hr/employees/100";
+String uri6 ="http://34.223.219.142:1212/ords/hr/regions";
 
 
 
@@ -37,6 +38,37 @@ Example 1 based on employees(use postman)
     and response content should be json
     and first name should be Steven
     and employee id should be 100 
+*
+7: Given Accept Type is json
+   When I spend a get request to rest url:"uri6"
+   Then status code is 200
+   And Response content should be json
+   and 4 regions should be returned. 
+   and Americas is one of the region names
+
+In java this means that this varargs hasItem and hasItems. 
+   ( hasItems("NOT Murodil's Region","Asia"));)
+
+   ( hasItem("NOT Murodil's Region"));)
+
+8: Given accept type is json
+   And params are limit 100
+   When i send get request to url: "uri"
+   then status code is 200
+   and response content should be json
+   and 100 employees data should be in json response body.
+
+9: given accept type json
+   and params are limit = 100
+   and path param is 110
+   when i send get request to url: "uri"
+   then status code is 200
+   and response content should be json
+   and following data should be returned
+        "employee_id": 110,
+        "first_name": "John",
+        "last_name": "Chen",
+        "email": "JCHEN",
 
 ========================================================================
 
@@ -86,6 +118,39 @@ Answers:
     .and().assertThat().body("first_name", MatchersequalTo(100));
 
     }   
+7: 	@Test
+	public void verifyFirstName() {
+		given().accept(ContentType.JSON)
+		.when().get(ConfigurationReader.getProperty("hrapp.baseresturl")+"/regions")
+		.then().assertThat().statusCode(200)
+		.and().contentType(ContentType.JSON)
+		.and().assertThat().body("items.region_id", hasSize(25))
+		.and().assertThat().body("items.region_name", hasItem("NOT Murodil's Region"))
+		.and().assertThat().body("items.region_name", hasItems("NOT Murodil's Region","NOT Murodil's Region"));
+
+	}
+
+8: 	@Test
+	public void QueryList() {
+		given().accept(ContentType.JSON)
+		.and().params("limit",100)
+		.when().get(ConfigurationReader.getProperty("hrapp.baseresturl")+"/employees")
+		.then().assertThat().statusCode(200)
+		.and().contentType(ContentType.JSON)
+		.and().assertThat().body("items.employee_id", hasSize(100));
+	}
+9:
+	@Test
+	public void querylist2() {
+		given().accept(ContentType.JSON)
+		.and().params("limit",100)
+		.and().pathParams("employee_id",110)
+		.when().get(ConfigurationReader.getProperty("hrapp.baseresturl")+"/employees/{employee_id}")
+		.then().statusCode(200)
+		.and().contentType(ContentType.JSON)
+		.and().assertThat().body("employee_id", equalTo(110),"first_name",equalTo("John"));
+
+	}
 
 ========================================================================
 
@@ -104,3 +169,35 @@ import io.restassured.response.Response;
 import io.restassured.http.ContentType;
 import static io.restassured.RestAssured.*;
 
+
+
+
+
+
+
+
+	//8 QUERY / REQUEST PARAMeter
+	// is not part of url and passed in key+value format those parameters must be defined by API developer
+	@Test
+	public void QueryList() {
+		given().accept(ContentType.JSON)
+		.and().params("limit",100)
+		.when().get(ConfigurationReader.getProperty("hrapp.baseresturl")+"/employees")
+		.then().assertThat().statusCode(200)
+		.and().contentType(ContentType.JSON)
+		.and().assertThat().body("items.employee_id", hasSize(100));
+	}
+	// path parameters
+	// is a part of URL and followed by the end of full resource url
+	@Test
+	public void querylist2() {
+		given().accept(ContentType.JSON)
+		.and().params("limit",100)
+		.and().pathParams("employee_id",110)
+		.when().get(ConfigurationReader.getProperty("hrapp.baseresturl")+"/employees/{employee_id}")
+		.then().statusCode(200)
+		.and().contentType(ContentType.JSON)
+		.and().assertThat().body("employee_id", equalTo(110),"first_name",equalTo("John"));
+
+	}
+}
