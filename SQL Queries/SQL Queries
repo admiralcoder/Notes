@@ -1,0 +1,86 @@
+SQL Queries Practice
+
+-- how to print duplicate row in a tables
+        select first_name,manager_id
+        from employees
+        group by first_name, manager_id
+        having count (*) > 1;
+
+-- how to print specifit duplicate individual from list based on
+    manager id 145
+        select *
+        from employees
+        where first_name = 'Peter'
+        and manager_id = 145;
+
+------------ Inner/left/right/outter JOIN -----------
+
+-- Inner join Ans: An SQL Join is used 
+-- to combine data from two or more tables, 
+-- based on a common field between them. For 
+-- example, consider the following two tables.
+
+        select e.first_name, d.manager_id, d.location_id
+        from employees e  join departments d
+        on e.department_id = d.department_id;
+
+        select e.first_name, d.manager_id, d.location_id
+        from employees e left join departments d
+        on e.department_id = d.department_id;
+
+        select e.first_name, d.manager_id, d.location_id
+        from employees e right join departments d
+        on e.department_id = d.department_id;
+
+        select e.first_name, d.manager_id, d.location_id
+        from employees e full join departments d
+        on e.department_id = d.department_id;
+
+------------ NATURAL JOIN -----------
+-- Natural join 
+    -- joins on columns with same name
+    -- if name changes query will stop working
+    -- if new columns are added query may stop working
+    -- or show incorrect data
+    -- can not qualifier next to e.
+
+            select first_name,
+            last_name,
+            department_id,
+            department_name
+            from employees natural join departments;
+
+------------ CARTESIAN JOIN -----------
+    -- Not usually what you want
+    -- often because join condition is missed
+    -- gives you more records than expected
+    -- use cross join keyword 
+
+        select first_name
+        department_name
+        from employees cross join departments;
+
+        select first_name
+        department_name
+        from employees, departments;
+
+------------ SELF JOIN -----------
+    -- join a table to itself
+    -- used when a record in a talb eis related to another 
+    record in the same table
+    -- employee_id // manager_id
+
+            Select e.employee_id,
+            e.first_name,
+            e.last_name,
+            m.first_name,
+            m.last_name,
+            m.employee_id
+            from employees e 
+            left join employees m 
+            on e.manager_id = m.employee_id;
+
+
+
+------------ MULTIPLE TABLES JOIN -----------
+        -- 

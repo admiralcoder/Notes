@@ -70,6 +70,15 @@ In java this means that this varargs hasItem and hasItems.
         "last_name": "Chen",
         "email": "JCHEN",
 
+10:given accept type json
+   and params are limit = 100
+   and employee id  is 110
+   when i send get request to url: "uri"
+   String uri ="http://34.223.219.142:1212/ords/hr/employees";
+   then status code is 200
+   and response content should be json
+   all employee ids should be returned
+
 ========================================================================
 
 Answers:
@@ -150,6 +159,27 @@ Answers:
 		.and().contentType(ContentType.JSON)
 		.and().assertThat().body("employee_id", equalTo(110),"first_name",equalTo("John"));
 
+	}
+
+10: @Test
+	public void test3() { // this is just data validation 
+		Map <String,Integer> rParamMap = new HashMap<>();
+		rParamMap.put("limit", 100);
+		
+		Response response = given().accept(ContentType.JSON)
+							.params(rParamMap)
+							.and().pathParams("employee_id",177)
+							.when().get(ConfigurationReader.getProperty("hrapp.baseresturl")+"/employees/{employee_id}");
+		
+		JsonPath json = response.jsonPath(); // get json body and assign to json path object
+		System.out.println(json.getInt("employee_id"));
+		System.out.println(json.getString("last_name"));
+		System.out.println(json.getString("links[0].href"));
+		// get specifil element from array
+		// assign all Hrefs into a list of Strings
+		List<String> hrefs = json.getList("links.href");
+		System.out.println(hrefs);
+		
 	}
 
 ========================================================================

@@ -82,6 +82,9 @@ ON departments.location_id = locations.location_id;
 
 -------= MORE CONDITIONS same example from top
 
+	Display department id and department name city name for all departments
+	where department id is 100 
+	
 SELECT department_id,department_name,city
 FROM departments JOIN locations
 ON departments.location_id = locations.location_id

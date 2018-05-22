@@ -186,4 +186,41 @@ Contains General Both phone call and in person Interview
         where rn = 5;
 
 
+1. How many years of automation experience do you have?
+
+2. Tell me about the current project you're working on and your role in it?
+
+3. Tell me about your framework
+
+4. How many test cases are in your framework?
+
+5. Let's imagine, you need to add one more test case to your smoke test bc of the added 
+functionality, how do you make sure it runs in Jenkins?
+
+6. Who configures your Jenkins?
+   - Dev ops team set up jenkins, We get reports on email. 
+
+7. Let's imagine, you're working with the browser and a pop-up  comes up, how do you handle it?
+   - switchtoAlert 
+
+8. Do yo work with locators?
+
+9. Tell me the difference between By.linkText and By.partialLinkText?
+
+10. What browsers do you automate on?
+
+11. What is the extra step you need to take to configure Internet Explorer for automation? 
+    - (He gave me answer: you need to enable capabilities)
+
+12. What libraries do you use for your excel files? Do you work with PDF files as well?
+
+13. How do you automate your database?
+
+14. SQL question: You have a table with "Employee ID", "Employee Name", "Total Salary". 
+    How do you choose just the employee with the highest salary?
+
+15. Do you use aggregate functions?
+
+16. We have tables and we have Views, do you work with Views?
+
 

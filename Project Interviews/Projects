@@ -1,0 +1,73 @@
+Capital One ( Car Loan Application ) OCTOBER 2016 - NOW
+=========================================
+
+
+
+
+CHALLENGES: 
+
+
+
+BCBS ( BLUE CROSS BLUE SHIELD ) - MARCH 2014 - SEPTEMBER 2016
+===========================================
+
+
+
+FRAMEWORK: 
+    I used management and test tools as Eclipse IDE Selenium WebDriver
+    Maven Cucumber and Jenkins
+    I also used POM Structure in order to keep my code organized and clean
+    So basically i created a separate Java class for each page of my application.
+    where 
+
+
+
+
+Current FRAMEWORK
+     my current framework is based on Data Driven, and Behavior Driven framework, Hybrid Framework 
+    i use maven build tool and not only for dependency management 
+    but also as a command prompt tool using the pom xml file , i also have specific file that run my smoketest
+    regression and functionality tests. 
+
+    for my front end i use selenium WebDriver
+    also am using java as programming language working front end and database testing 
+    and i use selenium for UI browser automation and in my framework am using POM as my design pattern
+  
+    for backend testing i am using ResAssured in your framework in order for the process of deserialization 
+    to occur that way you store json response into a java collection data structure and assert the data 
+    with the expected value. I also have an API utility class which is re-usable
+    I also produce high level pojos and map objects
+
+    For Database testing 
+    manually I use SQL developer for producing SQL queries and for Automation 
+    I use JDB library to integrate Java by using getting a connection from oracle database
+    then creating statements using SQL queries and then storing the data into a resultSet
+    I use Java data Structures to store data inside and compare them 
+
+    and since I am using Data Driven and cucumber Bdd Framework all of this test are stored inside
+    feature files. I have a runner classes that helps me generate codes from feature files 
+    and implement them into a file called step definition also have hook class that implement
+    my codes that run before and after all my tests and its based on gherkin language. this is where i invoke my takeScreenshot interface
+    which triggers when i use Senario interface that takes a screenshot of the step failed 
+
+    For data driven testing if I am working with amounts of test data I am going to operate
+    with scenario outlines. this is where i create examples and store datas using pipeline
+    if there is large amounts of test data its usually in a external (excel file) so i use 
+    APACHE POI to INVOKE DDT excel Automation.
+
+    I also have a logging tool called log4j to log my codes that are basically high risk.
+    and lastly for my reports in my framework I use Rerun.txt code in cucumber. generated actually
+    by cucumber sandwich library this will store my failed cucumber feature files. 
+    then I also have a failed scenario runner class which has the location of my failed scenarios.
+    I create a failed scenario xml file. 
+    so whenever i have failed feature files I use maven command. mvn -Drunner=failedScenarios xml file to run my
+    failed tests.
+
+    Reporting I use html report that has located in target folder which is called cucumber-reports
+    and lastly for continous integration devops takes care of configuaration but the tool is invoked
+    by a maven command that is provided by the tester. 
+
+
+
+
+

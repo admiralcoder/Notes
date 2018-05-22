@@ -1381,6 +1381,11 @@ in case we will get exeption thrown. " in catch block"
         - order by is used to sort either descending and ascending
 ----------------------------------------------------------------------------------------
 * difference between HAVING vs WHERE
+        Ans: HAVING is used to specify a condition for a group or an aggregate function 
+        used in select statement. The WHERE clause selects before grouping. The HAVING 
+        clause selects rows after grouping. Unlike HAVING clause, the WHERE clause cannot 
+        contain aggregate functions.
+        
         - when ever our condition includes a group founction 
         example: HAVING max(salary) > 9000;
 
@@ -1428,10 +1433,29 @@ in case we will get exeption thrown. " in catch block"
         - WHAT IS DDL? data definition language : create alter drop truncate
         - DML data manipulation languages: select delete insert update
 ----------------------------------------------------------------------------------------
+* What is SQL?
+        - SQL is Structured Query Language designed for inserting and modifying in a relational database system.
+----------------------------------------------------------------------------------------
+*What is the difference between primary key and unique constraints?
+        - Ans: Primary key cannot have NULL value, the unique constraints can have NULL values. 
+         There is only one primary key in a table, but there can be multiple unique constrains.
 
 ----------------------------------------------------------------------------------------
-* what kind of database testing are you doing?
-        - 
+
+
+----------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------
 
 
 ==========================================================================
