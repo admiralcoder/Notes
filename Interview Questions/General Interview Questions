@@ -224,3 +224,17 @@ functionality, how do you make sure it runs in Jenkins?
 16. We have tables and we have Views, do you work with Views?
 
 
+17. difference  between implict wait and explicit wait.
+    implicit wait: we have hooks class we have before and after comes from cucumber 
+                    before method we have implict wait which declares 
+
+    Explicit: for specific web element 
+
+18: can you handle Error ?
+        
+19: sauce labs? 
+
+20: how do you handle last minute project. if you developer deploys his code at the last minute and you
+dont have time to test what do you do?
+
+21: how do you link test case to user story in jira?

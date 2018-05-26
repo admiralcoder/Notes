@@ -47,7 +47,8 @@ Current FRAMEWORK
     and since I am using Data Driven and cucumber Bdd Framework all of this test are stored inside
     feature files. I have a runner classes that helps me generate codes from feature files 
     and implement them into a file called step definition also have hook class that implement
-    my codes that run before and after all my tests and its based on gherkin language. this is where i invoke my takeScreenshot interface
+    my codes that run before and after all my tests and its based on gherkin language. this is where i 
+    invoke my takeScreenshot interface
     which triggers when i use Senario interface that takes a screenshot of the step failed 
 
     For data driven testing if I am working with amounts of test data I am going to operate
@@ -66,6 +67,67 @@ Current FRAMEWORK
     Reporting I use html report that has located in target folder which is called cucumber-reports
     and lastly for continous integration devops takes care of configuaration but the tool is invoked
     by a maven command that is provided by the tester. 
+
+
+
+Framework
+
+    what is a testing framework?
+    
+             a testing framework is a set of guidelines or rules used for creating and designing test cases.
+
+    What is the benefit of testing framework?
+
+             improve test efficiency
+             lower maitenance
+
+    Types of automated testing framework?
+
+            Data Driven framework
+            Bdd framework current project
+            keyword is used by UFT 
+
+
+
+Pages: we have our webelements and methods
+
+Runners: we have our cukesRunner which run the projects and you can have more runner class for examples
+        smokeRunner, RegressionRunner
+
+Step_definition: we have our actual codes and hooks
+
+
+
+
+
+Feature files: and those files contain executable specifications written in a language called Gherkin.
+
+jenkins is an open source automation server
+jenkins helps to automate the non human part of the software development process. 
+
+What is testing framework?
+    set of guidelines or rules used for creating and designing test cases
+what is apache POI.xml?
+    access microsoft format files
+How to get step_definition methods from feature files?
+    right click on the feature file and run as cucumber feature.
+GIT what is it?
+    version control system for tracking changes in computer files and coordinate work on those files
+WHat is jenkins?
+    is a software that allows continues integration
+how to send email reports to other people in jenkins?
+    configure-> post buildactions-> add post build actions -> editable email notification -> advance -> recipient List
+
+
+
+
+
+
+
+
+
+
+
 
 
 

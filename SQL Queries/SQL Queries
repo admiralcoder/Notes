@@ -8,6 +8,7 @@ SQL Queries Practice
 
 -- how to print specifit duplicate individual from list based on
     manager id 145
+
         select *
         from employees
         where first_name = 'Peter'
@@ -36,7 +37,7 @@ SQL Queries Practice
         from employees e full join departments d
         on e.department_id = d.department_id;
 
------------- NATURAL JOIN -----------
+------------ NATURAL JOIN ----------- qualifier
 -- Natural join 
     -- joins on columns with same name
     -- if name changes query will stop working
@@ -83,4 +84,108 @@ SQL Queries Practice
 
 
 ------------ MULTIPLE TABLES JOIN -----------
-        -- 
+        -- Multiple Tables
+        -- big advantage of database
+        -- we just add another join keyword
+    
+                select 
+                e.employee_id,
+                e.first_name,
+                j.start_date,
+                l.job_title
+                from employees e 
+                join job_history j 
+                on e.employee_id = j.employee_id
+                join jobs l 
+                on j.job_id = l.job_id;
+
+============================================================
+
+------------ instr function -----------
+
+ -- shows the number where that specific posission is lets say 
+        for EABEL print me the number possition of letter B
+
+                select first_name,
+                last_name,
+                email,
+                instr(email,'B')
+                from employees;
+
+-- length of the name in numbers.
+                select length(first_name), first_name
+                from employees;
+
+
+------------ Nesting function within function -----------
+
+-- will allow you to print starting at 4568 which is the last 4 of a phone number 
+        select first_name
+        last_name,
+        email,
+        phone_number,
+        instr(phone_number,4568)
+        from employees;
+
+------------ Dates functions -----------
+
+==== how to print todays Date ====
+for this you dont need any tables sql already comes with it
+
+                select sysdate
+                from dual;
+
+
+-- print first name and last name and hire date for Steven King and show add 5 years 
+        from his hire date and name it alias as review_date. 
+
+                select first_name,
+                last_name,
+                hire_date,
+                ADD_MONTHS(hire_date,60) as review_date
+                from employees
+                where first_name = 'Steven'
+                and last_name = 'King';
+
+how to print how long has an employee been working with the company?
+
+---- IN DAYS months between function is used first parameter is sysdate it will 
+        generate the date between system date and time of hire. 
+                select first_name,
+                last_name,
+                hire_date,
+                months_between(sysdate, hire_date) as time_with_company
+                from employees;
+
+--- in years we devide by 12 and later round by 1 decimal
+                select first_name,
+                last_name,
+                hire_date,
+                round (months_between(sysdate, hire_date)/12, 1) as Year_with_company
+                from employees;
+
+------------ ROUND numbers functions -----------
+rounds numbers from 20.59 to 21
+                select min_salary,
+                ROUND (min_salary)
+                from jobs;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

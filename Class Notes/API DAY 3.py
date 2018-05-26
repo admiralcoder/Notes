@@ -23,6 +23,7 @@ cucumber = value
 
 	1: QUERY parameters = is not part of url and passed in key+value format
 	those parameters must be defined by API developer
+	
 	2: Path parameters
 	is a part of url and followed by the end of the full resource url
 

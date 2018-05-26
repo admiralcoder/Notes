@@ -794,6 +794,22 @@ class Employee implements Comparable<Employee>{
 Boot CAMP
 ==== SELENIUM REVIEW ====
 
+SELENIUM GRID:                                                node
+
+    YOU HAVE YOUR CODE --> REMOTE DRIVER -> SELENIUM HUB  ->  node
+
+                                                              node
+    EXAMPLE: WebDriver driver = new RemoteWebDriver( , )
+
+
+* SauceLabs
+    - they provide testing in cloud
+
+* Selenium Grid 
+    - Gives you avility to run your automated tests in different browsers 
+    and versions and operating systems. 
+    - open source tool that is part of Selenium Suite
+
 * what is test automation and what are the benefits?
 	- no human interaction
 	- fast
