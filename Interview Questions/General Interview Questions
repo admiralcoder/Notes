@@ -238,3 +238,189 @@ functionality, how do you make sure it runs in Jenkins?
 dont have time to test what do you do?
 
 21: how do you link test case to user story in jira?
+
+
+1. Tell me about your manual and automation background?
+2. Describe the manual Testing Lifecycle?
+3. What is Java class, variable, method, Object, method overloading?
+4. What does Page Object Model mean?
+5. What is REST API and how do you test it?
+6. How do you test your DataBase and define that it passes or fails?
+7. What TestNG and Cucumber annotations do you know?
+8. How do you do your reports?
+
+Tell me about yourself?
+How would you rate yourself in java on a scale of 10?
+Write me a method which can identify a given number is even or odd
+identify(5) -> print "Odd"
+
+identify(6) -> print "Even" 
+
+--> What about your approach using Scanner class? Tell me about Scanner
+
+  4. Write a method that returns string version of int
+
+convert(4321) -> print "four thousand three hundred and twenty one"
+
+How do you run TestNG.xml from command line?
+Can you tell me about TestNG listeners and how do you implement it?
+What type of locators do you use in selenium?
+How do you handle multiple windows in selenium?
+What’s the alternative of sendKeys() method?
+How do you automate images, have you used any other tools to test images?
+Tell me about a problem you faced with selenium and how did you solve it?
+Tell me about some of the exceptions you worked with in selenium?
+I put a water bottle in the refrigerator, and the water is not getting cold, what’s your approach to troubleshoot? (He wanted to hear 7 different approaches)
+How good are you with SQL?
+What’s the difference between Join and Union?
+
+
+1. Tell us about yourself and your framework/current project.
+
+2. When the time is tight, would you just write an okayish code or do you always take extra time to review the code you wrote and polish it to make it better?
+
+3. Difference between final and finally?
+
+4. how do you use overloading in your project?
+
+5. How do you migrate 18 million rows of data from one place to another?
+
+6. What is the difference between functional tester and manual tester? (I guess the product owner thought they were different titles as I was mentioning either one time to time)
+
+7. If there's an argument between you and the developer regarding a bug, who has the final say? (I said PO)
+
+8. How do you resolve conflict between coworkers?
+
+9. How do you handle stress?
+
+10. The sprint is ending very soon and you have to do release, but you found a minor issue, what would you do? (I said talk to the team or PO) And they said: But the product owner wants you to just close it, it's too late, we have to do the release.. (I said then it's up to whatever the PO says)
+
+11. Tell us about a time where you took leadership role and led a group to do something at your work.
+
+12. You have 2 user stories with same/high priority, how would you make sure to finish both of them in a timely manner?
+
+13. How do you convince your team about a new tool/idea that you want to bring in to the team that everyone is against?
+
+14. Have you done demo?
+
+15. Do you only do testing or do you help with developers and/or BA with their job?
+
+16. In your current project, do you believe everything can be automated? (I said no, that's why we have manual tester)
+
+17. Explain to us what is the definition of done?
+
+18. How good is your math skills? 
+
+19. How many environments do you have?
+
+20. When you are done with a certain task, do you review it others or just submit it? (correct answer is review it with whole team)
+
+
+
+
+1. Write a method that check if a string is build out of the same letters as another string
+same("abc","cab"); -> true 
+same("abc","abb"); -> false
+
+2. Write a method that will remove all dupplicates from string 
+removeDup("abcc"); -> "abc"
+
+3. Write a method that will count number of each char in a String
+countChar("abbc"); -> {a=1, b=2, c=1}
+
+4. Write a method that will print only unique letters of given string
+printUnique("aabbc") -> "c"
+printUnique("aabc") -> "bc"
+
+5. Write a method which prints out the numbers from 1 to 30 
+but for numbers which are a multiple of 3, print "FIN" instead of the number 
+and for numbers which are a multiple of 5, print "RA" instead of the number
+for numbers which are a multiple of both 3 and 5, print "FINRA" instead of the number.
+
+6. Method that prints numbers in fibonacci sequence in java. In fibonacci series, 
+next number is the sum of previous two numbers for example 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55 etc.
+The first two numbers of fibonacci series are 0 and 1. Method will accepts one int as arg.
+fibonacci(5); -> 0, 1, 1, 2, 3 
+fibonacci(8); -> 0, 1, 1, 2, 3, 5, 8, 13,
+
+7. Write me a method which can identifies given number is even or odd
+identify(5) -> print "Odd"
+identify(6) -> print "Even"
+
+8. Write a method that returns string version of int
+convert(4321) -> print "four thousand three hundred and twenty one"
+
+9. Write a program to print all permutations of a given string. This one is crazy 
+permutation("ABC") -> "ABC ACB BAC BCA CBA CAB"
+
+10. Write a method to print a diamond of astercics
+diamond(); - >   *
+                        ***
+                       *****
+                        ***
+                          *
+11. Write a method that returns max value out of array of integers, and than Srtings.
+int[] arr = {2,3,4};
+max(arr) -> 4
+
+12. You have a sentence in a String : ''Mom and dad in a racecar '' --> find and return the biggest palindrome
+
+and then write all possible ways how to test the function that i just did.
+
+
+
+1. Tell me about yourself? 
+
+2. Whats your project? 
+
+3. In the future do you willing to be a developer? 
+
+3. What do you not like in automation? (I said SQL. He said. OK.. Lets start with SQL..)
+
+4. There are two tables they supposed to have same data. How can you test it? 
+
+5. There are two tables they supposed to have the same number of row. How can you test it? 
+
+6. There is a table. It has a first name, last name, salary, depID. I want to know the average salary of each department 
+
+7. What is JOINS in SQL?
+
+8. Union, Union All 
+
+9. What is 'final' in java? When do you use it?
+
+10. OOP concepts in Java? 
+
+11. Reverse String method 
+
+12. How do you use Cucumber in your framework? 
+
+13. Tell me about your framework? 
+
+14. What is a flow of execution? 
+
+15. Why do you follow a singleton pattern design?
+
+16. CI and CD 
+
+Then one interviewer started to explain what is it CD. almost 15 min
+
+17. Do you like your job?
+
+There were regular questions about selenium. It is it.
+
+Then I asked about their team.
+
+About my roles
+
+
+
+
+
+
+
+
+
+
+
+

@@ -173,15 +173,120 @@ rounds numbers from 20.59 to 21
 
 
 
+---------- SQL INTERVIEW QUERIES ---------
+
+-- find the second highest salary of employee
+
+select max(salary)
+from employees
+where salary not in 
+(select max (salary) from employees);
+
+-- Find Max Salary from each department
+
+select department_id, max(salary)
+from employees
+group by 
+department_id;
 
 
+-- print current date
+
+select sysdate
+from dual;
+
+-- print the name of the distinct employee
+-- whose hireDate is between 17-JUN-03 and 21-MAY-07
+
+select distinct first_name 
+from employees
+where hire_date between '17-JUN-03' and '21-MAY-07';
+
+-- find employee whose salary is equal or greater than 10000
+
+select *
+from employees
+where salary >= 10000;
+
+-- find name of employees whose name starts with M
+
+select first_name
+from employees
+where first_name like 'M%';
+
+-- print anual salary for employees
+
+select first_name,last_name, salary*12
+from employees;
 
 
+-- print Lex from employees
+
+select *
+from employees
+where first_name = 'Lex';
+
+-- print salary for employees who earn 4000 to 8000
+
+select *
+from employees
+where salary between 4000 and 8000;
+
+-- list employees who are working in department 60 and 80
+
+select *
+from employees
+where department_id in (60,80);
 
 
+-- get employee id and last name in descending order based on employee id
 
+select employee_Id, last_name
+from employees
+order by employee_id desc;
 
+-- print last_name from employees and the lenght of their last names
+-- also count how many employees have the same last name 
 
+select last_name, count(*) ,LENGTH(last_name)
+from employees
+group by last_name;
+
+-- select employee record with max salary
+
+select *
+from employees
+where salary = (select max (salary) from employees);
+
+-- select highest salary in employee table
+
+select max(salary)
+from employees;
+
+-- select range of employee based on Id 
+
+select *
+from employees
+where employee_id between 100 and 113;
+
+--return employee name, highest salary and department name
+
+select e.first_name,
+e.salary,
+d.department_name
+from employees e join departments d
+on (e.department_id = d.department_id)
+where salary in (select max(salary) from employees);
+
+-- return highest salary employee name department name for each department
+
+select e.first_name,
+e.salary,
+d.department_name
+from employees e join departments d
+on (e.department_id = d.department_id)
+where salary in 
+(select max(salary) from employees group by department_id);
 
 
 
