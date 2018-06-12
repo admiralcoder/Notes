@@ -1,0 +1,146 @@
+January 6th  Marouf STUDENT INTERVIEW QUESTIONS
+
+*Explicit wait: wait for certain condition/event it allows
+    driver to wait for many conditions such as element be clickable appear
+    disapear.
+
+a. it does not work globally after it is set. it has to be called 
+    specifically for certain evernt. it works once.
+b. expected condition class is used for different condition 
+
+*Which locator is the best?
+    there is no best locator it all depends on the application the element 
+    and the other factors. but this is the order how i try to find elements:
+
+    how i choose locators?
+        if its a link i use start with linktext, partiallinktext
+    if it is not a link Id
+        id , name, class, tag, Name, css, xpath 
+
+    xpath : good for texts index tables child to parent
+    xpath not good: can be very fragile means that it can be broken easily if
+    the html tree changes hard to read and write.
+
+*Exceptions with implicit wait: 
+    - NoSuchElementExceptions will be thrown 
+*Exceptions explicit wait:
+    - TimeOut Exceptions
+
+* how do you do reporting in selenium:
+    - depends on what kind of framework you have.
+    - In my current framework because we use cucumber with testNG 
+    we use BDD framework currently i am using cucumber html reports. 
+    
+* how would you verify the position of the webElement on the page:
+    - WebElement element = ....
+        element.getlocation();
+
+    - Web Element class has a getLocation method and it will return 
+    a class call point (X and Y) 2 numbers which is the location the the element
+
+*Can you think about all the different tasks you have had as QA what is
+the biggest challange you have had:
+    1. when I joined the project the framework in place was poorly 
+    written did not follow coding standards. and it was hard to understand.
+    I had to convience my team to rewrite the framework from scratch 
+
+*How typically does your day go ? what do you do:
+    On daily basis we start working on test cases. Attend meetings scrum meetings
+    Talk to team mates. 
+    (for example meet with BA/PO to clarify new requirements)
+
+*How much time you spend on manual and automation testing?
+    - As and automation engineer I still have to do manual testing. I always
+    try to test cases manually before i automate to 1. make sure test case works
+    to understand the test case. 
+    - When I find a bug I try to recreate the bug manually to get more information about 
+    the bug.
+
+*How do you do regression testing:
+    In my project we do smoke and regression testing. We schedule and run the tests on 
+    Jenkins which is hosted in our AWS server(EC2)
+    Using cucumber we have built regression suite. We Have our test cases.
+    we run our smoke test every day. and we have our major regresion before our release
+
+*What are the design pattern in selenium?
+    Page Object Model is a design pattern used in selenium to mirror the application in 
+    certain objects. Using page object model we create a class for each page for our 
+    application. in those classes we map the objects and functionality form respective
+    pages.
+
+*When Do you run regression Test?
+    for releases
+    major bugs/code changes/new feature
+
+    code Changes: 
+
+
+
+*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
++++++++ GIT  +++++++
+
+VCM (Version Control Manager Tools):
+    We have GIT, CVS, SVN we currently are using GIT 
+
+We Store in BitBucket or Github or Gitlab as our repository.
+
+*How do you do code review?
+    - what I do everyone on the team joins the webinar and Developer presents your 
+    code in your IDE(ECLIPSE, INTELLIJ IDE)
+
+    - Once its approved by everyone, and we are in the same page code is completed 
+    and push to remote reporsitory and everyone can now pull and use it. 
+
+*How do you text API services?
+    -To test api service i send request to API endpoints and verify response from 
+    rest API
+
+    -After learning about restful API endpoints URL's I send Post, Get, Put, DELETE
+     type of http requests to those URLS and verify assert the response according 
+     to user story / requirement
+
+    - in some scenarios: i make s ure API response data matches the values in database
+
+*I worked in projects where i had to test different application layers:
+    1: front end layer/UI automtion -> selenium WebDriver
+    2: API layer/restful API -> Postman, RestAssured
+    3: Database layer/relational database -> Oracle 11G(version)
+            SQL -> JDBC 
+
+
+*How to validate your response from your API?
+
+    RESPONSE: Status code/status line
+            JSON/XML Body
+            Content Type
+
+*
+
+
+
+
+
+
+
+
+
+
+
+
+

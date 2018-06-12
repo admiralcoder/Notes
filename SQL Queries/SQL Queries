@@ -1,4 +1,28 @@
-SQL Queries Practice
+SQL? STRUCTURE QUERY LANGUAGE
+
+SQL STATEMENTS: 
+        DML: DATA MANIPULATION LANGUAGE(SDET JOB)
+                        SELECT 
+                        INSERT      
+                        UPDATE
+                        DELETE
+                        MERGE
+        DDL: DATA DEFINITION LANGUAGE ( DEVELOPER )
+                        CREATE
+                        ALTER
+                        DROP
+                        RENAME
+                        TRUNCATE
+                        COMMENT
+        DCL: DATA CONTROLER LANGUAGE
+                        GRANT
+                        REVOKE
+        TRANSIT CONTROL
+                        COMMIT
+                        ROLLBACK
+                        SAVEPOINT
+
+
 
 -- how to print duplicate row in a tables
         select first_name,manager_id
@@ -67,7 +91,7 @@ SQL Queries Practice
 
 ------------ SELF JOIN -----------
     -- join a table to itself
-    -- used when a record in a talb eis related to another 
+    -- used when a record in a table is related to another 
     record in the same table
     -- employee_id // manager_id
 
@@ -288,8 +312,85 @@ on (e.department_id = d.department_id)
 where salary in 
 (select max(salary) from employees group by department_id);
 
+-- select a row if an employee is president or a sales 
+-- representative and if the employee earns more than 15000
+
+select last_name, job_id, salary
+from employees
+where (job_id = 'SA_REP'
+or job_id = 'AD_PRES')
+and salary > 10000;
+
+-- select the row if an employee is a president and earns more than 15k
+-- or if the employee is a sales representative 
+        select last_name, job_id, salary
+        from employees
+        where job_id = 'SA_REP'
+        or job_id = 'AD_PRES'
+        and salary > 15000;
 
 
+-- select employees from FI_ACCOUNT  who makes highest salary
+        select last_name, job_id, salary
+        from employees
+        where job_id = 'FI_ACCOUNT'
+        and salary = 
+        (select max(salary) 
+        from employees 
+        where job_id = 'FI_ACCOUNT');
+
+
+--find how many records are in countries table where country_name has "in" in them
+        select count(*)
+        from countries
+        where country_name like '%in%';
+
+
+--natural join
+        select *
+        from employees,jobs
+        where employees.job_id = jobs.job_id;
+
+-- query: return first name job title and max salary 
+
+
+
+--natural join
+        select jobs.job_title , 
+        jobs.max_salary, 
+        employees.first_name 
+        from employees,jobs
+        where employees.job_id = jobs.job_id;
+
+
+-- self Join 
+
+        select a.first_Name, b.first_name
+        from employees a, employees b
+        where a.first_name = b.first_name;
+
+-- explicit inner join using join and on..
+
+        select a.first_Name, b.first_name
+        from employees a
+        join employees b
+        on a.first_name = b.first_name;
+
+-- joins right join
+
+        select c.first_name,c.department_id, j.min_salary,j.job_title
+        from employees c
+        right join jobs j
+        on c.job_id = j.job_id
+        order by c.first_name; 
+
+
+-- print how many employees are in department id and id is 100 label
+-- it as employees
+
+        select count(department_id) as employees
+        from employees
+        where department_id=100;
 
 
 
