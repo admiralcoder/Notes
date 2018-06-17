@@ -1227,7 +1227,7 @@ When you talk about your framework mention this frameworks:
         HOW TO STABLISH CONNECTION: 
                                 Connetion conn = DriverManger.getConnection("URL","username","password")
                                 Statement stat = connection.createStatement(ResultSet.TYPE_...)
-                                ResultSet resu = statement.executeQuery("select * from countries");
+                                ResultSet resu = statement.executeQuery("select * from employees");
 
         - test data is separted from code ..
 
@@ -1840,6 +1840,199 @@ for the automation?
     - other testers
     - test lead. 
 --------------------------------------------------------------------------
+
+
+*How do you test API service?
+    I am using Restassured library, what I am verifying is the status code, Response message/error 
+    message few other response details like Json format. 
+
+COMMON ERRORS IN API:
+
+    1xx: Informational - Communicates transfer protocol-level information
+
+    2xx: Success -Indicates that the client’s request was accepted successfully.
+
+    3xx: Redirection - Indicates that the client must take some additional action in order to 
+    complete their request.
+    4xx: Client Error - This category of error status codes points the finger at clients.
+
+    5xx: Server Error - The server takes responsibility for these error status codes.
+
+https://nordicapis.com/best-practices-api-error-handling/
+
+What type is your database?
+
+*Are you storing your JSON body in Oracles?
+    Yes I store Json data en Oracle Database using columns whose data types are 
+    varchar2. (also clob or blob) the choice of which to use is typically motivated 
+    by size of the JSON document i need to manage:
+        -I use varchar2 (4000) if my Jason document does not exceed 4000 bytes(or characters)
+        -Use VARCHAR2(32767) if you know that some of your JSON documents are larger than 4000 
+        bytes (or characters) and you are sure than none of the documents exceeds 32767 bytes 
+        (or characters)Footref 1.
+        -I use BLOB (BINARY LARGE OBJECT) or CLOB(CHARACTER LARGE OBJECT) storage if you know
+        that you have some JSON document that are larger than 32767 bytes or characters
+
+  Example for JSON Data to ORACLE: (press command+click ) to open link
+    https://docs.oracle.com/en/database/oracle/oracle-database/12.2/adjsn/creating-a-table-with-a-json-column.html#GUID-E6CC0DCF-3D72-41EF-ACA4-B3BF54EE3CA0
+
+
+    
+When are you testing your service and your received 500 error and how would you debug it?
+    First of all 500 its a internal server error. This isn’t because these errors are usually 
+    hard to fix, however. It’s because the error is usually not specific and can occur for a 
+    number of different reasons. What i do to debug the error depends upon the server and 
+    what’s actually running at the time.
+        *DEBUG COMMON PLATFORMS
+            1: If the software was just upgraded to a new version, it’s likely that the upgrade 
+            failed and needs to be refreshed.
+
+            2: If a new plugin or theme was just activated, it’s probably a good idea to roll that 
+            change back and try again. Even well-tested plugins might conflict with other plugins 
+            in the installation.
+
+            3: If the software has been upgraded, older plugins or themes might not be compatible 
+            with the upgrade. The only course of action is to start deactivating things until the 
+            error goes away. That doesn’t directly solve the problem; however, it will find the 
+            issue. It might be possible to get the plugin developer to release an update.
+        *DEBBUGING SERVER SIDE SCRIPTS
+            1: Server permission: Very commonly, incorrect permissions on a file or folder that 
+            contains one of the scripts causes this this error.
+
+            2: Server timeout: If the server was busy, needed to be rebooted, or the connection 
+            was lost, the script might still report a 500 Internal Server Error. It’s possible 
+            that the error might not happen the next time.
+            
+*What is 400 ?
+    4XX – Client Error
+    The 4XX series of error codes is perhaps the most famous due to the iconic 404 Not Found status, 
+    which is a well-known marker for URLs and URIs that are incorrectly formed. Other more useful 
+    status codes for APIs exist in this range, however.
+
+    414 URI Too Long is a common status code, denoting that the data pushed through in a GET request 
+    is too long, and should be converted to a POST request. Another common code is 429 Too many 
+    Requests, which is used for rate limiting to note a client is attempting too many requests at once, 
+    and that their traffic is being rejected.
+
+*How do you validate your response from your API?
+
+
+
+*Are you doing any verifications in your database?
+    yes but before that i make sure to create a connection:
+
+      1: Connection con = DriverManager.getConnection(dbUrl,username,password);
+    
+    Send Queries to the Database Once connection is made, I execute the queries.
+    
+      2: Statement statement=connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+
+    Process Results from the executed query are stored in the ResultSet Object.
+    
+      3:   ResultSet resultSet = statement.executeQuery("select * from countries");
+
+        **** Summary of Steps for Selenium Database Testing ****
+
+        Step 1) Make a connection to the Database using method.
+
+            DriverManager.getConnection(URL, "userid", "password" )
+
+        Step 2) Create Query to the Database using the Statement Object.
+
+            Statement stmt = con.createStatement();
+
+        Step 3) Send the query to database using execute query and store the results in the ResultSet object.
+
+            ResultSet rs = stmt.executeQuery(select * from employee;);
+
+            
+
+
+How do you automate database validation part?
+    @Test
+    public void jdbcMetadata() throws Exception{
+	  Connection connection=DriverManager.getConnection(oracleDbUrl, oracleDbUsername, oracleDbPassword); 
+	  Statement statement=connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+	  String sql = "select employee_id,last_name,job_id, salary from employees";
+	  ResultSet resultSet = statement.executeQuery(sql);
+	  
+	  // 1: DATABASE METADATA
+	  DatabaseMetaData dbMetadata = connection.getMetaData();
+	  System.out.println("User:" + dbMetadata.getUserName()); // returns User and database type
+	  System.out.println("Database type:" + dbMetadata.getDatabaseProductName());
+	  
+	  // 2: RESULTSET store it in ResulSetMETADATA
+	  ResultSetMetaData rsMedata = resultSet.getMetaData();
+	  System.out.println("Columns count:" + rsMedata.getColumnCount());
+	  System.out.println( rsMedata.getColumnName(1));
+	  
+	  //print all column names using a loop
+	  for (int i = 1; i <= rsMedata.getColumnCount() ; i++) {
+		System.out.println(i +" -> " + rsMedata.getColumnName(i));
+	  }
+	  
+	  //Throw ResulSet into a List of Maps
+	  //Create a List of Maps
+	  List<Map<String,Object>> list = new ArrayList<>();
+	  ResultSetMetaData rsMdata = resultSet.getMetaData();
+	  
+	  int colCount = rsMdata.getColumnCount(); 
+	  
+	  while(resultSet.next()) {
+		  Map<String,Object> rowMap = new HashMap<>();
+		  
+		  for(int col = 1; col <= colCount; col++) {
+			  rowMap.put(rsMdata.getColumnName(col), resultSet.getObject(col));	  
+		  }
+		  
+		  
+		  list.add(rowMap);
+	  }
+	  
+	  //print all Employees ID from a list of maps
+	  
+	  for (Map<String, Object> emp: list) {
+		System.out.println(emp.get("EMPLOYEE_ID"));
+	  }
+
+	  resultSet.close();	  
+	  statement.close();	  
+	  connection.close();
+  }
+  
+  
+}
+
+4. How would u test api manually. Describe steps
+    First of all I start by going over the API documentation. thats where 
+    i collect the api Authentication url. in order to get my access token.
+    I use postman as manual automation tool I make sure to have access by 
+    entering authorization as key and my access token as value. of course
+    i have to make sure that content type is json and my acceptance type is also
+    Json. Then once i get my call I test based on my API documentation my end points
+    currenly i am testing preferences API. I also make sure the status code is 200 
+    and that is how i do manual testing. The other option is using the Network option 
+    when i inspect my UI application. i check the Headers, Preview, Response. 
+
+
+======= INTERVIEW QUESTIONS ======
+
+What is important to you the employee?
+    people = whats important to me is my team mates. I will be with them all
+    day 
+    stability
+    growth
+    networking
+
+What is important to you the employer?
+    thorny problems: Can you tell me what problems are you facing  
+    unresolved challenges: What can i do to resolve that challenge. 
+
+
+Why how did this position become available? did someone leave?
+    (AKA: are you good enough for ME?)
+
+
 
 
 
