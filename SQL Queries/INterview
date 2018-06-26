@@ -1,0 +1,246 @@
+1. Can u draw me application structure. It’s layers. What it consists of (UI, database, api...)
+2. What were the challenges u have faced and how u solved them?
+3. What was the biggest bug u found?
+4. Write 2 methods: a) reverse string b) find first repeating letter in the string
+
+5. Now how would u unit test this methods?
+
+ After that,1.5 hours with Indian lady and another Indian guy...surprisingly Indians were more nice than Vadim
+
+1. U have an Json file with different data, how u would validate it?
+2. Now same test, but no selenium, no api, only Java
+3. Imagine u have json file with 1000 customers that has 5 elements each! 
+How would u find exact one customer without looping over json 
+    ( I said the only way would do is just to loop over each object of that file, 
+    but he said that there is another way also,  its another library that allows u 
+    to read exact line from that file, I asked him to tell me what exactly they are called so 
+    I could do research, that it sound really cool and would make my life lot more comfortable, 
+    he said to make sure that i do researc --> Jsonmanipulation libraries and 
+    Json object library)
+
+        example: 
+
+        json_flat = '{"page":"1","total":"2","ids":[{"id":"3085"},{"id":"3086"}]}'; // regular Json     
+        json_object = JSON.parse(json_flat); //convert to an object
+
+        //Manipulation
+        json_object.page = "6"; //change values
+        delete json_object.total; //delete a value
+
+        json_flat = JSON.stringify(json_object); //convert back to flat
+
+
+4. How would u test api manually. Describe steps
+    First of all I start by going over Scenario: Post a note on Dashboard
+    When I post "Hello Everyone"
+    Then Post should be displayed
+    And I logout from application the API documentation. thats where 
+    i collect the api Authentication url. in order to get my access token.
+    I use postman as manual automation tool I make sure to have access by 
+    entering authorization as key and my access token as value. of course
+    i have to make sure that content type is json and my acceptance type is also
+    Json. Then once i get my call I test based on my API documentation my end points
+    currenly i am testing preferences API. I also make sure the status code is 200 
+    and that is how i do manual testing. The other option is using the Network option 
+    when i inspect my UI application. i check the Headers, Preview, Response. 
+    
+5. What is maven used for?
+6. What is TestNG 
+7. How run test locally?
+
+8. What means static and non static methods?
+
+9. Whats overriding and overloading?
+
+10. Why Java? Whats in Java in it that makes you think that Java is what u want to learn?
+
+*How do you test API service?
+    I am using Restassured library, what I am verifying is the status code, Response message/error 
+    message few other response details like Json format. 
+
+COMMON ERRORS IN API:
+
+    1xx: Informational - Communicates transfer protocol-level information
+
+    2xx: Success -Indicates that the client’s request was accepted successfully.
+
+    3xx: Redirection - Indicates that the client must take some additional action in order to 
+    complete their request.
+    4xx: Client Error - This category of error status codes points the finger at clients.
+
+    5xx: Server Error - The server takes responsibility for these error status codes.
+
+https://nordicapis.com/best-practices-api-error-handling/
+
+What type is your database?
+
+*Are you storing your JSON body in Oracles?
+    Yes I store Json data en Oracle Database using columns whose data types are 
+    varchar2. (also clob or blob) the choice of which to use is typically motivated 
+    by size of the JSON document i need to manage:
+        -I use varchar2 (4000) if my Jason document does not exceed 4000 bytes(or characters)
+        -Use VARCHAR2(32767) if you know that some of your JSON documents are larger than 4000 
+        bytes (or characters) and you are sure than none of the documents exceeds 32767 bytes 
+        (or characters)Footref 1.
+        -I use BLOB (BINARY LARGE OBJECT) or CLOB(CHARACTER LARGE OBJECT) storage if you know
+        that you have some JSON document that are larger than 32767 bytes or characters
+
+  Example for JSON Data to ORACLE: (press command+click ) to open link
+    https://docs.oracle.com/en/database/oracle/oracle-database/12.2/adjsn/creating-a-table-with-a-json-column.html#GUID-E6CC0DCF-3D72-41EF-ACA4-B3BF54EE3CA0
+
+
+    
+When are you testing your service and your received 500 error and how would you debug it?
+    First of all 500 its a internal server error. This isn’t because these errors are usually 
+    hard to fix, however. It’s because the error is usually not specific and can occur for a 
+    number of different reasons. What i do to debug the error depends upon the server and 
+    what’s actually running at the time.
+        *DEBUG COMMON PLATFORMS
+            1: If the software was just upgraded to a new version, it’s likely that the upgrade 
+            failed and needs to be refreshed.
+
+            2: If a new plugin or theme was just activated, it’s probably a good idea to roll that 
+            change back and try again. Even well-tested plugins might conflict with other plugins 
+            in the installation.
+
+            3: If the software has been upgraded, older plugins or themes might not be compatible 
+            with the upgrade. The only course of action is to start deactivating things until the 
+            error goes away. That doesn’t directly solve the problem; however, it will find the 
+            issue. It might be possible to get the plugin developer to release an update.
+        *DEBBUGING SERVER SIDE SCRIPTS
+            1: Server permission: Very commonly, incorrect permissions on a file or folder that 
+            contains one of the scripts causes this this error.
+
+            2: Server timeout: If the server was busy, needed to be rebooted, or the connection 
+            was lost, the script might still report a 500 Internal Server Error. It’s possible 
+            that the error might not happen the next time.
+            
+*What is 400 ?
+    4XX – Client Error
+    The 4XX series of error codes is perhaps the most famous due to the iconic 404 Not Found status, 
+    which is a well-known marker for URLs and URIs that are incorrectly formed. Other more useful 
+    status codes for APIs exist in this range, however.
+
+    414 URI Too Long is a common status code, denoting that the data pushed through in a GET request 
+    is too long, and should be converted to a POST request. Another common code is 429 Too many 
+    Requests, which is used for rate limiting to note a client is attempting too many requests at once, 
+    and that their traffic is being rejected.
+
+*How do you validate your response from your API?
+
+
+
+*Are you doing any verifications in your database?
+    yes but before that i make sure to create a connection:
+
+      1: Connection con = DriverManager.getConnection(dbUrl,username,password);
+    
+    Send Queries to the Database Once connection is made, I execute the queries.
+    
+      2: Statement statement=connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+
+    Process Results from the executed query are stored in the ResultSet Object.
+    
+      3:   ResultSet resultSet = statement.executeQuery("select * from countries");
+
+        **** Summary of Steps for Selenium Database Testing ****
+
+        Step 1) Make a connection to the Database using method.
+
+            DriverManager.getConnection(URL, "userid", "password" )
+
+        Step 2) Create Query to the Database using the Statement Object.
+
+            Statement stmt = con.createStatement();
+
+        Step 3) Send the query to database using execute query and store the results in the ResultSet object.
+
+            ResultSet rs = stmt.executeQuery(select * from employee;);
+
+            
+
+
+How do you automate database validation part?
+    @Test
+    public void jdbcMetadata() throws Exception{
+	  Connection connection=DriverManager.getConnection(oracleDbUrl, oracleDbUsername, oracleDbPassword); 
+	  Statement statement=connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+	  String sql = "select employee_id,last_name,job_id, salary from employees";
+	  ResultSet resultSet = statement.executeQuery(sql);
+	  
+	  // 1: DATABASE METADATA
+	  DatabaseMetaData dbMetadata = connection.getMetaData();
+	  System.out.println("User:" + dbMetadata.getUserName()); // returns User and database type
+	  System.out.println("Database type:" + dbMetadata.getDatabaseProductName());
+	  
+	  // 2: RESULTSET store it in ResulSetMETADATA
+	  ResultSetMetaData rsMedata = resultSet.getMetaData();
+	  System.out.println("Columns count:" + rsMedata.getColumnCount());
+	  System.out.println( rsMedata.getColumnName(1));
+	  
+	  //print all column names using a loop
+	  for (int i = 1; i <= rsMedata.getColumnCount() ; i++) {
+		System.out.println(i +" -> " + rsMedata.getColumnName(i));
+	  }
+	  
+	  //Throw ResulSet into a List of Maps
+	  //Create a List of Maps
+	  List<Map<String,Object>> list = new ArrayList<>();
+	  ResultSetMetaData rsMdata = resultSet.getMetaData();
+	  
+	  int colCount = rsMdata.getColumnCount(); 
+	  
+	  while(resultSet.next()) {
+		  Map<String,Object> rowMap = new HashMap<>();
+		  
+		  for(int col = 1; col <= colCount; col++) {
+			  rowMap.put(rsMdata.getColumnName(col), resultSet.getObject(col));	  
+		  }
+		  
+		  
+		  list.add(rowMap);
+	  }
+	  
+	  //print all Employees ID from a list of maps
+	  
+	  for (Map<String, Object> emp: list) {
+		System.out.println(emp.get("EMPLOYEE_ID"));
+	  }
+
+	  resultSet.close();	  
+	  statement.close();	  
+	  connection.close();
+  }
+  
+  
+}
+
+Example: EMP_ID – 9634
+How do you check in assert statement ?
+
+
+You will write 9634 or you will query the database and get that value in assert ?
+
+
+How are you comfortable with the automation in Selenium?
+How would you handle Drag and drop?
+AWS – S3 bucket ?
+AWS – Lambdas
+AWS – EC2 ?
+How to run test parallel in different browser using EC2 ?
+What is Sauce labs and How do you run your test in it ?
+Are you running in EC2 instance or sauce labs instance?
+How do you start your Selenium GRID ?
+Where are you starting to run your HUB?
+If you have to run your selenium test at 8pm is your dev be available to start the HUB or you will start it ?
+You are writing selenium code for login and you confining your local machine and everything then what happens 
+and how do you run the test and describable how it worked  ?
+You have your project set up and you wrote test cases you have tested it locally it will launch the browser and 
+log it in and log out now how is your Jenkins picking up your test?
+And where do you define your Hub and nodes ?
+How will Jenkins know to start HUB and nodes?
+Where did you keep that URL and is it static or does it change all the time?
+How does sauce labs fit in to your project ?
+How long does your web automation tests takes to executes?
+How about your service project ? (explanations : Your executing your automation project and/in Web service/API) ?
+How long does your API test run ?

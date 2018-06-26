@@ -413,11 +413,16 @@ Example:
     - 
 -----------------------------------------------------------------
 * Difference between overloading and overriding?
-    1: overlaoding = same method name but different parameters
-       overriding = same method name and same paramethers
+Overloading allows different methods to have same name, but different 
+signatures where signature can differ by number of input parameters or 
+type of input parameters or both. Overloading is related to compile time 
+(or static) polymorphism.
 
-    2: overloading = return type can be different
-       overriding = same type or sub type
+    1: overlaoding = same method name but different parameters
+       overloading = return type can be different
+
+    2: overriding = same type or sub type
+       overriding = same method name and same paramethers
        
 -----------------------------------------------------------------
 * Can you override a static method?
@@ -729,6 +734,13 @@ class Employee implements Comparable<Employee>{
     - Stack: last in first out 
 --------------------------------------------------------------
 * treeset vs TreeMap
+
+Major difference between TreeSet and TreeMap is that TreeSet
+implements Set interface while TreeMap implements Map interface 
+in Java. ... TreeSet stores only one object while TreeMap uses 
+two objects called key and Value. Objects in TreeSet are sorted 
+while keys in TreeMap remain in sorted Order.
+
     - TreeSet: Can contain only unique values
     - is sorted in ascending order
     - TreeMap: can contain only unique keys.
@@ -2002,8 +2014,7 @@ How do you automate database validation part?
   
   
 }
-
-4. How would u test api manually. Describe steps
+* How would u test api manually. Describe steps
     First of all I start by going over the API documentation. thats where 
     i collect the api Authentication url. in order to get my access token.
     I use postman as manual automation tool I make sure to have access by 
@@ -2013,6 +2024,824 @@ How do you automate database validation part?
     currenly i am testing preferences API. I also make sure the status code is 200 
     and that is how i do manual testing. The other option is using the Network option 
     when i inspect my UI application. i check the Headers, Preview, Response. 
+
+
+======================== LINUX INTERVIEW QUESTION ===========================
+
+*How to find all the links in a folder in UNIX or Linux ?:
+
+    I use ls -lrt to be more specific i use grep to collect only links by using 
+
+    ls - lrt | grep '^ l'     " ^ <- this symbol is called caret"
+
+        linux@nyj872:~ ls -lrt total 2.0K 
+        -rw-r--r-- 1 Linux Domain Users 0 Dec 6 2011 a 
+        drwxr-xr-x+ 1 Linux Domain Users 0 Sep 19 12:30 java/ 
+        lrwxrwxrwx 1 Linux Domain Users 4 Sep 19 12:31 version_1.0 -> java/ 
+
+        linux@nyj872:~ ls -lrt | grep '^l' 
+        lrwxrwxrwx 1 Linux Domain Users 4 Sep 19 12:31 version_1.0 -> java/
+
+Read more: http://www.java67.com/2012/09/10-linux-and-unix-interview-questions-answers-wipro-tcs-capegemini.html#ixzz5IkaVVrHV
+
+*How to find a process and kill that?:
+
+    by using "ps -ef" you can get a list of all process and then use grep to find your 
+    process and get the PID of that process. Once you got PID you can use the kill command 
+    to kill that process
+
+Read more: http://www.java67.com/2012/09/10-linux-and-unix-interview-questions-answers-wipro-tcs-capegemini.html#ixzz5IkfGi5lc
+
+*How to run a program in the background in UNIX or Linux ?:
+    You can use &amp; to run any process in the background and then you can use jobs 
+    to find the job id for that process and can use  fg and bg command to bring that 
+    process into foreground and background
+
+Read more: http://www.java67.com/2012/09/10-linux-and-unix-interview-questions-answers-wipro-tcs-capegemini.html#ixzz5IkfwCDNf
+
+*How to sort the output of a command in reverse order in Linux or UNIX ?:
+
+1) Sorting based on numeric value of String using UNIX sort command:
+    Many times instead of alphabetic sorting we need numeric sorting. Just 
+    like in below example of Unix sort command if we want to sort based upon a 
+    numeric value of PID we can use sort -n along with sort -k(column). 
+    Since here PID is second column sort -nk2 will work for us. This is also 
+    another great example of UNIX sort by column, which allows you do sort the 
+    data based on any column in UNIX
+
+        unix-sort-examples@unix-tutorial:~/test ps -ef | sort -nk2
+        UID                  PID       PPID TTY     STIME COMMAND
+        unix-sort-examples     500    2832   0    Jul 18 /usr/bin/bash
+        unix-sort-examples    1976    3556   2    Jul18 /usr/bin/ps
+        unix-sort-examples    2324       1 con    Jul 18 /cthelper
+        unix-sort-examples    2676       1 con    Jul 18 /cthelper
+        unix-sort-examples    2832       1 con    Jul 18 /cthelper
+        unix-sort-examples    3332    2676   1    Jul 18 /usr/bin/bash
+        unix-sort-examples    3556    2324   2    Jul 18 /usr/bin/bash
+
+2) Reverse sort by using UNIX sort command:
+    Sometimes we need to sort in reverse order e.g. descending order. 
+    sort -r option allows us to perform reverse sorting in Unix.
+
+        unix-sort-examples@unix-tutorial:~/test ps -ef | sort -rnk2
+        unix-sort-examples    3616    3556   2  11:49:43 /usr/bin/ps
+        unix-sort-examples    3556    2324   2    Jul 18 /usr/bin/bash
+        unix-sort-examples    3448       0   0    Jan  1 /usr/bin/ps
+        unix-sort-examples    3332    2676   1    Jul 18 /usr/bin/bash
+        unix-sort-examples     500    2832   0    Jul 18 /usr/bin/bash
+            UID     PID    PPID TTY     STIME COMMAND
+3) UNIX sort by column : Sorting based on any column in the input.
+    sort command in Unix mostly used in combination of other Unix commands 
+    like find, grep, ls or ps and most of these commands produce output in 
+    tabular format and we want to sort based on any column. Unix sort command 
+    allows us to do this by using sort -k option. Let's see an example or Unix sort 
+    command to sort the output on any column we will use ps command output for this 
+    example and we will sort this output on column 2 (PID) and later on column 3 (PPID)
+
+        unix-sort-examples@unix-tutorial:~/test ps -ef | sort -nk2
+            UID     PID    PPID TTY     STIME COMMAND
+        unix-sort-examples     500    2832   0    Jul 18 /usr/bin/bash
+        unix-sort-examples    2324       1 con    Jul 18 /cygdrive/c/Software/puttycyg-20101029/puttycyg-20101029/cthelper
+        unix-sort-examples    2564       0   0    Jan  1 /usr/bin/bash
+        unix-sort-examples    2676       1 con    Jul 18 /cygdrive/c/Software/puttycyg-20101029/puttycyg-20101029/cthelper
+        unix-sort-examples    2832       1 con    Jul 18 /cygdrive/c/Software/puttycyg-20101029/puttycyg-20101029/cthelper
+        unix-sort-examples    3332    2676   1    Jul 18 /usr/bin/bash
+        unix-sort-examples    3556    2324   2    Jul 18 /usr/bin/bash
+        unix-sort-examples    3764    3556   2  11:58:08 /usr/bin/ps
+
+
+Read more: https://javarevisited.blogspot.com/2011/08/unix-sort-command-example-tutorial.html#ixzz5IkhnBHek
+
+*How to create an archive file in UNIX or Linux Operating System ?:
+    Another interview question based on knowledge of UNIX or Linux command. 
+    you can use the tar command to great archives in UNIX or Linux. you can 
+    even combine tar and gzip to create a compressed archive in UNIX
+
+
+Read more: http://www.java67.com/2012/09/10-linux-and-unix-interview-questions-answers-wipro-tcs-capegemini.html#ixzz5IkijuQg4
+
+
+*What is the meaning of a file has 644 permission ?
+    The 644 represents permission 110 for the owner, 
+    permission 100 for group and 100 for others which means read + write for an owner 
+    who creates that file and read only permission for group and others. 
+
+Read more: http://www.java67.com/2012/09/10-linux-and-unix-interview-questions-answers-wipro-tcs-capegemini.html#ixzz5IkjFOam7
+
+
+
+* How will you remove empty files or directories from /tmp ?:
+Read more: http://www.java67.com/2012/09/10-linux-and-unix-interview-questions-answers-wipro-tcs-capegemini.html#ixzz5Ikls2zoo
+CREATE:
+
+        //This will create empty file in current directory
+        test@localhost:~/unix touch empty.txt           
+
+        //This will create empty directory inside current directory
+        test@localhost:~/unix mkdir empty_dir     
+
+        //This command will find all empty files and directories in Unix
+        test@localhost:~/unix find . -empty           
+        ./empty.txt
+        ./empty_dir
+
+PRINT:
+
+        //this command will print empty files
+        test@localhost:~/unix find . -type f -empty
+        ./empty.txt
+
+
+        //this command will print empty directories
+        test@localhost:~/unix find  . -type d -empty
+        ./empty_dir
+
+
+        //How to use grep command to print empty files and directories
+        test@localhost:~/unix ls -ltr | grep '\<0\>'
+        drwxr-xr-x+ 1 test Domain Users   0 Jun 15 11:43 empty_dir/
+        -rw-r--r--  1 test Domain Users   0 Jun 15 11:44 empty.txt
+
+        //find command to print empty files and directories
+        test@localhost:~/unix find . -maxdepth 1  -size 0 -ls
+        90353467524120775    0 drwxr-xr-x   1 test Domain Users        0 Jun 15 11:43 .
+        9007199255261921     0 -rw-r--r--   1 test Domain Users        0 Jun 15 11:44 ./empty.txt
+        19421773393554899    0 drwxr-xr-x   1 test Domain Users        0 Jun 15 11:43 ./empty_dir
+
+REMOVE:
+        //removing Empty files and directories using find command
+        test@localhost:~/unix find . -empty -delete
+
+        test@localhost:~/unix find . -empty -delete
+
+        test@localhost:~/unix ls -lrt
+        total 1.0K
+        -rw-r--r-- 1 test Domain Users 118 Aug  4  2011 contacts.txt
+
+        //using find and xargs command to remove empty files and directories
+        test@localhost:~/unix find . -empty | xargs rm -r
+
+        test@localhost:~/unix find . -empty -type d -exec rm -r {} \;
+        find: `./empty_dir': Not a directory
+
+
+Read more: https://javarevisited.blogspot.com/2012/08/delete-empty-files-directories-unix.html#ixzz5IkledGw5
+
+
+
+*I have read permission on a directory but I am not able to enter it why ?:
+    In order to get into a directory, you need to execute permission. if your directory 
+    does not have to execute permission then you can not go into that directory by using the cd command
+
+Read more: http://www.java67.com/2012/09/10-linux-and-unix-interview-questions-answers-wipro-tcs-capegemini.html#ixzz5IkmKTFXi
+
+NUMERIC FILE PERMISSION UNIX: 
+        0 – no permissions
+        1 – execute only
+        2 – write only
+        3 – write and execute
+        4 – read only
+        5 – read and execute
+        6 – read and write
+        7 – read, write and execute
+
+SYBOLIC FILE PERMISSION UNIX:
+        Reference       Class   Description
+        u       user    the owner of the file
+        g       group   users who are members of the file's group
+        o       others  users who are not the owner of the file or members of the group
+        a       all     all three of the above, is the same as ugo
+        r       read    read a file or list a directory's contents
+        w       write   write to a file or directory
+        x       execute execute a file or recurse a directory tree
+
+DEFAULT PERMISSION:
+        Default permission of file -- 666
+        usmak                      -- 022
+        ----------------------------------
+        Final permissions on file -- 644 (which is 110 100 100 i.e. rw- r-- r--) 
+        read and write for user and read only for group and others
+
+        Default permission of directory -- 777
+        umask                            -- 022
+        ----------------------------------------
+        Final permission of file         -- 755 (which is 111 101 101 i.e. rwx r-x r-x) 
+        read, write and execute for user (owner) and read+execute for group members and others.
+
+CHANGE PERMISSION:
+        stock_options:~/test touch stock_trading_systems
+
+        stock_options:~/test ls -lrt
+        total 8.0K
+        -rw-r--r--  1 stock_options Domain Users    0 Nov 15 11:42 stock_trading_systems
+
+        stock_options:~/test chmod 400 stock_trading_systems
+
+        stock_options:~/test ls -lrt
+        total 8.0K
+        -r--------  1 stock_options Domain Users    0 Nov 15 11:42 stock_trading_systems
+
+        stock_options:~/test vim stock_trading_systems
+
+        stock_options:~/test chmod 777 stock_trading_systems
+
+        stock_options:~/test ls -lrt
+        total 8.0K
+        -rwxrwxrwx  1 stock_options Domain Users    0 Nov 15 11:42 stock_trading_systems*
+
+
+Read more: https://javarevisited.blogspot.com/2011/11/file-permissions-in-unix-linux-example.html#ixzz5IknXmjRM
+
+
+*How to find size of file / directory /document :?
+    I use du -h "filename" to make it readable the result will be in bytes/Megabites etc. 
+        alexs-MacBook-Pro:Desktop arod$ du -h ALEX.pdf 
+        6.9M	ALEX.pdf
+        alexs-MacBook-Pro:Desktop arod$ 
+
+*How do  you find all the process listening on a particular port in Linux?:
+    I use netstat to find a process in a particular port example
+        $ netstat -nap | grep 8084 
+        (Not all processes could be identified, non-owned process info will not be shown, you would have to be root to see it all.) 
+        tcp 0 0 0.0.0.0:8084 0.0.0.0:* LISTEN 25314/java
+
+Read more: http://www.java67.com/2012/09/10-linux-and-unix-interview-questions-answers-wipro-tcs-capegemini.html#ixzz5Ikp8kt62
+
+
+Read more: http://www.java67.com/2012/09/10-linux-and-unix-interview-questions-answers-wipro-tcs-capegemini.html#ixzz5Ikp3c6W9
+
+
+*How to you find all the process which has opened a file in Linux?:
+    You can use the lsof (list open files) command to find out the process which has a file 
+    handle on the particular file. It's very useful command to check which process are reading a file
+
+        *How to find all opened files by a user 
+            $ lsof -u username
+
+            alexs-MacBook-Pro:Desktop arod$ lsof | grep java
+
+Read more: https://javarevisited.blogspot.com/2016/06/10-example-of-lsof-command-in-unix-linux.html#ixzz5Ikr9eUQV
+
+
+How to send HTTP request from a Linux server?:
+    You can use either wget or curl command to send HTTP request, both GET and POST from a Linux machine as shown below
+
+        alexs-MacBook-Pro:Desktop arod$ curl http://34.223.219.142:1212/ords/hr/employees/100
+
+        {"employee_id":100,"first_name":"Steven","last_name":"King","email":"SKING","phone_number"
+        :"515.123.4567","hire_date":"2003-06-17T04:00:00Z","job_id":"AD_PRES","salary":24000,
+        "commission_pct":null,"manager_id":null,"department_id":90,"links":
+        [{"rel":"self","href":"http://34.223.219.142:1212/ords/hr/employees/100"},
+        {"rel":"edit","href":"http://34.223.219.142:1212/ords/hr/employees/100"},
+        {"rel":"describedby","href":"http://34.223.219.142:1212/ords/hr/metadata-catalog/employees/item"},
+        {"rel":"collection","href":"http://34.223.219.142:1212/ords/hr/employees/"}]}alexs-MacBook-Pro:Desktop arod$ 
+
+Read more: http://www.java67.com/2012/09/10-linux-and-unix-interview-questions-answers-wipro-tcs-capegemini.html#ixzz5IkrjrAE2
+
+
+
+*How do you create a full directory structure e.g. /parent/child/grandchild in UNIX?:
+    Well, you can use the mkdir command with option -p to create all parent directories in one go
+
+        $ mkdir -p software/java/app/config 
+        $ pwd /home/john 
+        $ cd software/java/app/config/ 
+        [# ~/software/java/app/config]$
+
+Read more: http://www.java67.com/2012/09/10-linux-and-unix-interview-questions-answers-wipro-tcs-capegemini.html#ixzz5Iksbn3uU
+
+
+
+================ SQL QUERIES ===============
+
+
+SQL? STRUCTURE QUERY LANGUAGE
+
+SQL STATEMENTS: 
+        DML: DATA MANIPULATION LANGUAGE(SDET JOB)
+                        SELECT 
+                        INSERT      
+                        UPDATE
+                        DELETE
+                        MERGE
+        DDL: DATA DEFINITION LANGUAGE ( DEVELOPER )
+                        CREATE
+                        ALTER
+                        DROP
+                        RENAME
+                        TRUNCATE
+                        COMMENT
+        DCL: DATA CONTROLER LANGUAGE
+                        GRANT
+                        REVOKE
+        TRANSIT CONTROL
+                        COMMIT
+                        ROLLBACK
+                        SAVEPOINT
+
+
+
+-- how to print duplicate row in a tables
+        select first_name,manager_id
+        from employees
+        group by first_name, manager_id
+        having count (*) > 1;
+
+-- how to print specifit duplicate individual from list based on
+    manager id 145
+
+        select *
+        from employees
+        where first_name = 'Peter'
+        and manager_id = 145;
+
+------------ Inner/left/right/outter JOIN -----------
+
+-- Inner join Ans: An SQL Join is used 
+-- to combine data from two or more tables, 
+-- based on a common field between them. For 
+-- example, consider the following two tables.
+
+        select e.first_name, d.manager_id, d.location_id
+        from employees e  join departments d
+        on e.department_id = d.department_id;
+
+        select e.first_name, d.manager_id, d.location_id
+        from employees e left join departments d
+        on e.department_id = d.department_id;
+
+        select e.first_name, d.manager_id, d.location_id
+        from employees e right join departments d
+        on e.department_id = d.department_id;
+
+        select e.first_name, d.manager_id, d.location_id
+        from employees e full join departments d
+        on e.department_id = d.department_id;
+
+------------ NATURAL JOIN ----------- qualifier
+-- Natural join 
+    -- joins on columns with same name
+    -- if name changes query will stop working
+    -- if new columns are added query may stop working
+    -- or show incorrect data
+    -- can not qualifier next to e.
+
+            select first_name,
+            last_name,
+            department_id,
+            department_name
+            from employees natural join departments;
+
+------------ CARTESIAN JOIN -----------
+    -- Not usually what you want
+    -- often because join condition is missed
+    -- gives you more records than expected
+    -- use cross join keyword 
+
+        select first_name
+        department_name
+        from employees cross join departments;
+
+        select first_name
+        department_name
+        from employees, departments;
+
+------------ SELF JOIN -----------
+    -- join a table to itself
+    -- used when a record in a table is related to another 
+    record in the same table
+    -- employee_id // manager_id
+
+            Select e.employee_id,
+            e.first_name,
+            e.last_name,
+            m.first_name,
+            m.last_name,
+            m.employee_id
+            from employees e 
+            left join employees m 
+            on e.manager_id = m.employee_id;
+
+
+
+------------ MULTIPLE TABLES JOIN -----------
+        -- Multiple Tables
+        -- big advantage of database
+        -- we just add another join keyword
+    
+                select 
+                e.employee_id,
+                e.first_name,
+                j.start_date,
+                l.job_title
+                from employees e 
+                join job_history j 
+                on e.employee_id = j.employee_id
+                join jobs l 
+                on j.job_id = l.job_id;
+
+============================================================
+
+------------ instr function -----------
+
+ -- shows the number where that specific posission is lets say 
+        for EABEL print me the number possition of letter B
+
+                select first_name,
+                last_name,
+                email,
+                instr(email,'B')
+                from employees;
+
+-- length of the name in numbers.
+                select length(first_name), first_name
+                from employees;
+
+
+------------ Nesting function within function -----------
+
+-- will allow you to print starting at 4568 which is the last 4 of a phone number 
+        select first_name
+        last_name,
+        email,
+        phone_number,
+        instr(phone_number,4568)
+        from employees;
+
+------------ Dates functions -----------
+
+==== how to print todays Date ====
+for this you dont need any tables sql already comes with it
+
+                select sysdate
+                from dual;
+
+
+-- print first name and last name and hire date for Steven King and show add 5 years 
+        from his hire date and name it alias as review_date. 
+
+                select first_name,
+                last_name,
+                hire_date,
+                ADD_MONTHS(hire_date,60) as review_date
+                from employees
+                where first_name = 'Steven'
+                and last_name = 'King';
+
+how to print how long has an employee been working with the company?
+
+---- IN DAYS months between function is used first parameter is sysdate it will 
+        generate the date between system date and time of hire. 
+                select first_name,
+                last_name,
+                hire_date,
+                months_between(sysdate, hire_date) as time_with_company
+                from employees;
+
+--- in years we devide by 12 and later round by 1 decimal
+                select first_name,
+                last_name,
+                hire_date,
+                round (months_between(sysdate, hire_date)/12, 1) as Year_with_company
+                from employees;
+
+------------ ROUND numbers functions -----------
+rounds numbers from 20.59 to 21
+                select min_salary,
+                ROUND (min_salary)
+                from jobs;
+
+
+
+
+---------- SQL INTERVIEW QUERIES ---------
+
+-- find the second highest salary of employee
+
+select max(salary)
+from employees
+where salary not in 
+(select max (salary) from employees);
+
+-- Find Max Salary from each department
+
+select department_id, max(salary)
+from employees
+group by 
+department_id;
+
+
+-- print current date
+
+select sysdate
+from dual;
+
+-- print the name of the distinct employee
+-- whose hireDate is between 17-JUN-03 and 21-MAY-07
+
+select distinct first_name 
+from employees
+where hire_date between '17-JUN-03' and '21-MAY-07';
+
+-- find employee whose salary is equal or greater than 10000
+
+select *
+from employees
+where salary >= 10000;
+
+-- find name of employees whose name starts with M
+
+select first_name
+from employees
+where first_name like 'M%';
+
+-- print anual salary for employees
+
+select first_name,last_name, salary*12
+from employees;
+
+
+-- print Lex from employees
+
+select *
+from employees
+where first_name = 'Lex';
+
+-- print salary for employees who earn 4000 to 8000
+
+select *
+from employees
+where salary between 4000 and 8000;
+
+-- list employees who are working in department 60 and 80
+
+select *
+from employees
+where department_id in (60,80);
+
+
+-- get employee id and last name in descending order based on employee id
+
+select employee_Id, last_name
+from employees
+order by employee_id desc;
+
+-- print last_name from employees and the lenght of their last names
+-- also count how many employees have the same last name 
+
+select last_name, count(*) ,LENGTH(last_name)
+from employees
+group by last_name;
+
+-- select employee record with max salary
+
+select *
+from employees
+where salary = (select max (salary) from employees);
+
+-- select highest salary in employee table
+
+select max(salary)
+from employees;
+
+-- select range of employee based on Id 
+
+select *
+from employees
+where employee_id between 100 and 113;
+
+--return employee name, highest salary and department name
+
+select e.first_name,
+e.salary,
+d.department_name
+from employees e join departments d
+on (e.department_id = d.department_id)
+where salary in (select max(salary) from employees);
+
+-- return highest salary employee name department name for each department
+
+select e.first_name,
+e.salary,
+d.department_name
+from employees e join departments d
+on (e.department_id = d.department_id)
+where salary in 
+(select max(salary) from employees group by department_id);
+
+-- select a row if an employee is president or a sales 
+-- representative and if the employee earns more than 15000
+
+select last_name, job_id, salary
+from employees
+where (job_id = 'SA_REP'
+or job_id = 'AD_PRES')
+and salary > 10000;
+
+-- select the row if an employee is a president and earns more than 15k
+-- or if the employee is a sales representative 
+        select last_name, job_id, salary
+        from employees
+        where job_id = 'SA_REP'
+        or job_id = 'AD_PRES'
+        and salary > 15000;
+
+
+-- select employees from FI_ACCOUNT  who makes highest salary
+        select last_name, job_id, salary
+        from employees
+        where job_id = 'FI_ACCOUNT'
+        and salary = 
+        (select max(salary) 
+        from employees 
+        where job_id = 'FI_ACCOUNT');
+
+
+--find how many records are in countries table where country_name has "in" in them
+        select count(*)
+        from countries
+        where country_name like '%in%';
+
+
+--natural join
+        select *
+        from employees,jobs
+        where employees.job_id = jobs.job_id;
+
+-- query: return first name job title and max salary 
+
+
+
+--natural join
+        select jobs.job_title , 
+        jobs.max_salary, 
+        employees.first_name 
+        from employees,jobs
+        where employees.job_id = jobs.job_id;
+
+
+-- self Join 
+
+        select a.first_Name, b.first_name
+        from employees a, employees b
+        where a.first_name = b.first_name;
+
+-- explicit inner join using join and on..
+
+        select a.first_Name, b.first_name
+        from employees a
+        join employees b
+        on a.first_name = b.first_name;
+
+-- joins right join
+
+        select c.first_name,c.department_id, j.min_salary,j.job_title
+        from employees c
+        right join jobs j
+        on c.job_id = j.job_id
+        order by c.first_name; 
+
+
+-- print how many employees are in department id and id is 100 label
+-- it as employees
+
+        select count(department_id) as employees
+        from employees
+        where department_id=100;
+
+SQL DEVELOPER QUERY
+
+-- QUERY: print everything inside employees
+
+SELECT *
+FROM EMPLOYEES;
+
+-- Query: print firstname and lastname from employees
+select first_name, last_name
+from employees;
+
+-- Query: Print country name and region id from countries
+select country_name, region_id
+from countries;
+
+-- Query: print Argentina from countries table. 
+select country_name
+from countries
+where country_name = 'Argentina';
+
+--Query: Print first name and last name from employees;
+select first_name, last_name
+from employees;
+
+--Query: Print all colums where commission pct is not null
+select *
+from employees
+where commission_pct is not null;
+
+--Query: Print first name last name together from employees and 
+--rename the column as full name and make sure table name is in lower case
+--Example name: Ellen Abel -> EllenAbel 
+--Example Column Heading: FIRST_NAME --> fullname
+select first_name || last_Name as "fullname"
+from employees;
+
+--Query: print components of employees table what does it consist of 
+describe employees;
+
+--Query: print Schema of Database
+select table_name
+from user_tables;
+
+--Query: Print first name print the salary and anual salary from employees
+-- and rename it as anual_salary
+select first_name, salary, salary*12 as anual_salary
+from employees;
+
+--Query: Print anual salary+300 from employees
+select salary*12+300 from employees;
+
+--Query: print first name and concatenate " 's mercedes rocks "
+select first_name || q'['s mercedes rocks]'
+from employees;
+
+--Query: Select everything form employees where employees_id is less 
+--than 120
+select *
+from employees
+where employee_id < 120;
+
+
+--Query: print first name that contains first letter of name capital A
+
+select first_name
+from employees
+where first_name like 'A%';
+
+--Query: Print unique job id and first name from employees
+select distinct job_id
+from employees;
+
+--Inner JOIN 
+--Query:Give deparment name of an employee id
+
+select department_name, employee_id, first_name, last_name
+from employees e left join departments d
+on e.department_id = d.department_id
+where d.department_id is not null;
+
+select department_name, employee_id, first_name, last_name
+from employees e left join departments d
+on e.department_id = d.department_id;
+
+--Query: how do I find out if deparment table and employee table are
+--exactly the same
+(select employee_id
+from employees)
+minus
+(select department_id
+from employees);
+
+
+(select department_id
+from employees)
+minus
+(select employee_id
+from employees);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ======= INTERVIEW QUESTIONS ======

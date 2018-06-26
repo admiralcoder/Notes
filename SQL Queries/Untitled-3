@@ -1,0 +1,114 @@
+SQL DEVELOPER QUERY
+
+-- QUERY: print everything inside employees
+
+SELECT *
+FROM EMPLOYEES;
+
+-- Query: print firstname and lastname from employees
+select first_name, last_name
+from employees;
+
+-- Query: Print country name and region id from countries
+select country_name, region_id
+from countries;
+
+-- Query: print Argentina from countries table. 
+select country_name
+from countries
+where country_name = 'Argentina';
+
+--Query: Print first name and last name from employees;
+select first_name, last_name
+from employees;
+
+--Query: Print all colums where commission pct is not null
+select *
+from employees
+where commission_pct is not null;
+
+--Query: Print first name last name together from employees and 
+--rename the column as full name and make sure table name is in lower case
+--Example name: Ellen Abel -> EllenAbel 
+--Example Column Heading: FIRST_NAME --> fullname
+select first_name || last_Name as "fullname"
+from employees;
+
+--Query: print components of employees table what does it consist of 
+describe employees;
+
+--Query: print Schema of Database
+select table_name
+from user_tables;
+
+--Query: Print first name print the salary and anual salary from employees
+-- and rename it as anual_salary
+select first_name, salary, salary*12 as anual_salary
+from employees;
+
+--Query: Print anual salary+300 from employees
+select salary*12+300 from employees;
+
+--Query: print first name and concatenate " 's mercedes rocks "
+select first_name || q'['s mercedes rocks]'
+from employees;
+
+--Query: Select everything form employees where employees_id is less 
+--than 120
+select *
+from employees
+where employee_id < 120;
+
+
+--Query: print first name that contains first letter of name capital A
+
+select first_name
+from employees
+where first_name like 'A%';
+
+--Query: Print unique job id and first name from employees
+select distinct job_id
+from employees;
+
+--Inner JOIN 
+--Query:Give deparment name of an employee id
+select department_name, employee_id, first_name, last_name
+from employees e left join departments d
+on e.department_id = d.department_id
+where d.department_id is not null;
+
+select department_name, employee_id, first_name, last_name
+from employees e left join departments d
+on e.department_id = d.department_id;
+
+--Query: how do I find out if deparment table and employee table are
+--exactly the same
+(select employee_id
+from employees)
+minus
+(select department_id
+from employees);
+
+
+(select department_id
+from employees)
+minus
+(select employee_id
+from employees);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
