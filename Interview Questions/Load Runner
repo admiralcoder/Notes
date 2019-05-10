@@ -1,8 +1,10 @@
 Question-1. What Are Different Types Of Performance Testing?
 Answer.
-Performance testing certifies the performance of any web application under the load and stress conditions. Usually, we measure the system performance in terms of its response time for the user activity.
+Performance testing certifies the performance of any web application under the load and stress conditions. 
+Usually, we measure the system performance in terms of its response time for the user activity.
 
-At the onset, start it in the standalone mode and then do it in a multi-user environment, also observe the effect of multiple transactions vs. single transaction.
+At the onset, start it in the standalone mode and then do it in a multi-user environment, 
+also observe the effect of multiple transactions vs. single transaction.
 
 Types of Performance Testing.
 
