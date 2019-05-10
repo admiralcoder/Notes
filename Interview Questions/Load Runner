@@ -1,0 +1,318 @@
+Question-1. What Are Different Types Of Performance Testing?
+Answer.
+Performance testing certifies the performance of any web application under the load and stress conditions. Usually, we measure the system performance in terms of its response time for the user activity.
+
+At the onset, start it in the standalone mode and then do it in a multi-user environment, also observe the effect of multiple transactions vs. single transaction.
+
+Types of Performance Testing.
+
+
+ 
+1.1. Load.
+To test if an application works fine with the loads that result from a large number of simultaneous users and transactions.
+
+1.2. Stress.
+To examine application behavior under peak usage periods.
+
+1.3. Capacity.
+To measure the overall capacity and to determine when the response time turns unacceptable.
+
+ 
+
+Question-2. What Are The Notable Testing Solutions For Performance Testing?
+Answer.
+Following are some notable commercial testing tools used widely in the testing sphere.
+
+2.1. LoadRunner(HP).
+It’s meant for the Web and other applications. It can operate in a variety of application environments,
+platforms, and databases. It can employ a no. of server monitors to evaluate the performance measurement 
+of each component and tracking of bottlenecks.
+
+2.2. QAload(Compuware).
+It’s mainly used for load testing of Web, database and char-based system.
+
+2.3. WebLoad(RadView).
+It allows comparing the running tests vs. test metrics.
+
+2.4. Rational Performance Tester (IBM).
+It specializes in identifying the presence and cause of system performance bottlenecks.
+
+2.5. Silk Performer (Borland).
+It can predict the ideal behavior of an e-business environment before being deployed, regardless of the size and complexity.
+
+ 
+
+Question-3. What Is Load Runner And What Types Of Testing It Can Perform?
+Answer.
+Load Runner is a performance testing tool from HP. This tool supports all aspects such as Load, 
+Stress, Endurance, data volume and spike Testing.
+
+ 
+
+Question-4. What Are The Main Components Of Load Runner?
+Answer.
+Load Runner contains the following components.
+
+4.1. Virtual User Generator.
+It captures end-user business process and creates an automated performance testing scripts, known as Vuser script.
+
+4.2. Controller.
+Organizes, drives, manages and monitor the load test.
+
+4.3. Load generators.
+Creates the load by running Vusers.
+
+4.4. Analyzer.
+Helps to view, dissect and compare the performance results.
+
+4.5. Launcher.
+Provides a single point of access for all of the LoadRunner components.
+
+ 
+
+Question-5. What Are Vusers And Vuser Scripts?
+Answer.
+5.1. Vuser.
+Virtual users imitate a human using the application. And perform actions on the application just 
+like a human would have done. When workstations allow only one single human user to work, many 
+Vusers can concurrently work on a single workstation.
+
+5.2. Vuser Scripts.
+It is the script that keeps all the actions performed by the Vuser to complete the specific task. 
+Each Vuser invokes a Vuser script when we run a scenario. Vuser script also defines a function 
+to track the performance of the application.
+
+ 
+
+Question-6. How Does LoadRunner Execute A Performance Scenario?
+Answer.
+You can easily create and run the load test scenario. Following steps are involved in the process.
+
+6.1. Test planning.
+A thorough test plan is required for successful load testing.
+
+6.2. Prepare Vuser Script.
+Script contain task performed by each Vuser or multiple Vuser.
+
+6.3. Define the Scenario.
+A scenario describes an event that occurs during a testing session. It includes a list of machines 
+where the Vuser”ll run, a list of scripts to launch by Vuser and the no. of Vusers.
+
+6.4. Run the Scenario.
+Emulate load on the server by introducing multiple Vusers to perform the task.
+
+6.5. Monitor performance.
+Using LR online run-time, transaction resources, database resources and firewall resources can be monitored.
+
+6.6. Analyze results.
+It produces graphs and reports. You can use them to analyze the performance of an application.
+
+ 
+
+Question-7. Which LoadRunner Component Does The Recording Of Performance Test Scenario?
+Answer.
+The Virtual User Generator (VuGen) component allows recording of a script. It enables to define 
+Vuser scripts for a variety of application types and communication protocols.
+
+ 
+
+Question-8. Define Rendezvous Point With An Example?
+Answer.
+Rendezvous points are used to emulate heavy user load on the server. They instruct Vusers to wait 
+during test execution to enable multitasking.
+For example, in an e-commerce application, rendezvous points are added for 1000+ users to bid for 
+a product simultaneously.
+
+ 
+
+Question-9. What Is The Size Of VUsers Required For Load Testing?
+Answer.
+The size of VUsers for load testing depends on the following parameters.
+
+9.1. System under test (SUT),
+
+9.2. Network configurations,
+
+9.3. Hardware settings,
+
+9.4. Available memory, and
+
+9.5. Operating system.
+
+Hence there cannot be any generic value for Vuser.
+
+ 
+
+Question-10. What Is The Advantage Of Running Vuser As A Process Than A Thread?
+Answer.
+When Vuser is run as a process, the copy of driver program is loaded into memory for each request. 
+This requires a large amount of memory and limit the number of Vusers on a single generator.While Vuser is run as a thread,
+
+While Vuser is run as a thread, the single instance of driver program facilitates multiple Vusers. 
+You can run more no. of Vusers on a single generator in the multi-threaded mode.
+
+ 
+
+Question-11. What Constitutes A Performance Test Scenario?
+Answer.
+A scenario is a sequence of events, or situation, based on certain assumptions and factors (variables) 
+chosen by its creator. For example, a scenario defines-
+
+11.1. The no. of users.
+
+11.2. Action to be performed.
+
+11.3. Virtual machines system.
+
+ 
+
+Question-12. Define Throughput And How Does It Related To Response Time?
+Answer.
+Throughput refers to the no. of transactions produced over time during a test. It’s also expressed 
+as the amount of capacity that a website or application can handle.
+When we compare it with response time, we will notice both of them decrease simultaneously. Similarly, 
+the peak throughput and highest response time strike approximately at the same time.
+
+ 
+
+Question-13. What Is The Purpose Of An Extended Log?
+Answer.
+An extended log is expected to convey the following information.
+
+13.1. Data returned by the server and any of the advanced traces if available.
+
+13.2. Parameter substitution.
+
+13.3. Other information depending on the options you select in LoadRunner settings.
+
+ 
+
+Question-14. What Are The Different Types Of VUser Logs And State The Differences?
+Answer.
+There are two kinds of vUser logs in LoadRunner, the standard and extended logs. Standard log redirects a 
+subset of functions and messages to the output log. The subset of functions depends on the Vuser type.
+
+However, the extended log captures detailed execution messages into the output log. It is mostly used when 
+the user needs some debug information about parameter substitution.
+
+ 
+
+Question-15. What Is The Need Of Checkpoints In LoadRunner?
+Answer.
+While running a test, sometimes we need to check if desired content is found on the result page. 
+A content check confirms that expected information appears on the Web page.
+Two types of content checks are available in LoadRunner.
+
+15.1. Text Check.
+Confirm that a text string appears on a web page.
+
+15.2. Image Checks.
+Verify an image renders on a web page.
+
+ 
+
+Question-16. How Do You Define Think Time In LoadRunner?
+Answer.
+Think time corresponds to the user delay between two subsequent requests.
+For example, a user opens a page1 and starts filling the data on page1. Assume user took 10 sec to 
+fill the data. After that, he submitted page1, and page2 gets loaded. In this case, the user has waited 
+for 10 sec between page1 and page2. Hence the think time here is 10 sec.
+
+ 
+
+Question-17. What Are The Types Of Goals In Goal-Oriented Scenario Of Load Runner?
+Answer.
+Load Runner comes with five different types of goals.
+
+17.1. The no. of concurrent Vusers.
+
+17.2. The no. of hits per second.
+
+17.3. The no. of transactions per second.
+
+17.4. The no. of pages per minute.
+
+17.5. Transaction response time.
+
+ 
+
+Question-18. What Is The Significance Of Correlation? Also, Highlight Automatic Correlation.
+Answer.
+Correlation is a technique where dynamic values are not hard-coded in your script but are extracted 
+at run-time to avoid failure. The dynamic value could change for each user action or for different 
+users. In both the cases, correlation takes care of these values. And it prevents them from failing during execution.
+Automated correlation works on predefined correlation rules. The script is played back and scanned 
+for auto-correlation upon any failure. Vugen identifies the place wherever the correlation rules work 
+and correlate the value on approval.
+
+ 
+
+Question-19. What Is Manual Correlation?
+Answer.
+Manual Correlation involves the following actions.
+
+19.1. Identify the dynamic value.
+
+19.2. Find the first occurrence of dynamic value.
+
+19.3. Identify the unique boundaries to capture the dynamic value.
+
+19.4. Write the correlation function “web_reg_save_param” before the request gets the first occurrence of dynamic value in response.
+
+19.5. This correlation technique uses function Web_reg_save_param() to identify dynamic values in your 
+script. It is important that your playback your script to verify that correlation is done successfully.
+
+ 
+
+Question-20. How Do You Identify The Performance Bottlenecks?
+Answer.
+Performance Bottlenecks can be detected by using monitors.
+
+20.1. These monitors might be application server monitors, web server monitors, database server monitors and network monitors.
+
+20.2. They help in finding out the troubled area in our scenario which causes increased response time.
+
+20.3. The measurements made are usually performance response time, throughput, hits/sec, network delay graphs etc.
+
+ 
+
+Question-21. How To Identify What To Correlate And What To Parameterize?
+Answer.
+Any value in the script that changes on each iteration or with different users while replaying needs correlation. 
+Any user input while recording should be parameterized.
+
+ 
+
+Question-22. What Is Parameterization & Why Is Parameterization Necessary In The Script?
+Answer.
+Replacing hard-coded values within the script with a parameter is called Parameterization. 
+This helps a single virtual user (i.e. <vuser>) to use different data on each run. 
+This simulates real life usage of an application as it avoids server from caching results.
+
+ 
+
+Question-23. What Is The Difference Between Transaction And Transaction Instance In LoadRunner?
+Answer.
+A transaction is used to measure the time between executions of certain statements. 
+While a transaction instance is used for performance analysis.
+
+ 
+
+Question-24. While The Script Is Running We Find Some Values That May Need To Be Correlated? 
+Is It Possible To Do Manual Correlation For Those Values?
+Answer.
+NO. It’s not possible to correlate when the script is running. But you can make changes once the script has stopped.
+
+ 
+
+Question-25. How Do You Determine The Number Of Load Generator Machine Required To Run A Test?
+Answer.
+The size of load generator required would totally depend on the two points.
+
+25.1. Protocol used to create the script, and
+
+25.2. The configuration of the load generator machine.
+
+Each protocol has different memory print and this decides how many virtual users can be generated 
+from the given configuration of the machine.
+
