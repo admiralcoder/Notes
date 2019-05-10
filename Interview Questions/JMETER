@@ -1,0 +1,297 @@
+. What Is JMeter? What Are The Other Applications That Can Be Tested Using JMeter?
+Ans. Apache JMeter is an open source software. It is 100% pure Java desktop application 
+designed to load test functional behavior and measure performance of the client/server applications.
+
+1. It was originally designed for testing Web Applications only but has since then evolved to test other apps.
+2. It’s useful in testing the performance of both static and dynamic resources like files, Servlets, Perl scripts, 
+Java Objects, Data Bases, Queries, FTP Servers and more.
+3. JMeter can also perform various other types of testing like Functional, Regression, and Unit testing.
+
+ 
+
+Q-2. Explain The Basic Workflow Of JMeter?
+Ans. JMeter acts like a group of users sending requests 
+to a target server. It collects response from target server and other statistics 
+which depict the performance of the application or server via graphs or tables.
+
+ 
+
+Q-3. Name The Protocols Supported By JMeter?
+Ans. Following are some of the protocols supported by JMeter.
+
+1. Web Protocol: To test the web applications, it supports both HTTP and HTTPS protocols.
+2. Web Services: To test web services applications, it supports both SOAP and REST.
+3. FTP: File Transfer Protocol provides the support for testing the FTP servers and applications.
+4. Database via JDBC: used for testing the database applications.
+5. LDAP: Lightweight Directory Access Protocol
+6. Message-oriented middleware (MOM) via JMS
+7. Mail: used for testing of mail servers such as SMTP(S), POP3(S) and IMAP(S)
+8. MongoDB (NoSQL): it is recently supported protocol by JMeter.
+9. Native commands or shell scripts
+10. TCP
+
+ 
+
+Q-4. List The Important Features That JMeter Supports?
+Ans. Following are some of the key features of JMeter.
+
+1. It’s open-source software and is freely available.
+2. It has a very simple and intuitive GUI.
+3. JMeter can do load and performance test of many different server types like Web – 
+HTTP, HTTPS, SOAP, Database via JDBC, LDAP, JMS, Mail via POP3.
+4. It is a platform independent tool. On Linux or Unix, the user can open the JMeter 
+tool by clicking on the JMeter shell script. However, on Windows, it can be invoked by starting the jmeter.bat file.
+5. It has full Swing and lightweight component support (precompiled JAR uses packages java.swing.* ).
+6. JMeter prepares test plans in XML format.
+7. It’s a full multithreading framework allows concurrent sampling by many threads 
+and simultaneous sampling of different functions by separate thread groups.
+8. It is highly extensible.
+9. Can also be used to perform automated and functional testing of your application.
+
+ 
+
+Q-5. What Is Seen On The Screen When You Open A JMeter?
+Ans. By default, JMeter screen displays the Test Plan and Workbench tabs.
+
+TOP
+
+
+ 
+Q-6. What Is A Test Plan In JMeter? List Some Of The Test Plan Elements Available In JMeter.
+Ans. A Test Plan defines and provides a layout of how and what to test. 
+JMeter can be used to prepare a Test Plan for the web application as well as the client-server application. 
+It behaves like a container for running tests.
+
+A complete Test Plan comprises of one or more of the following elements.
+
+1. ThreadGroup
+2. Controllers
+3. Listeners
+4. Timers
+5. Assertions
+6. Configuration Elements
+7. Pre-Processor Elements
+8. Post-Processor Elements
+
+A Test Plan should have at least one thread group.
+
+ 
+
+Q-7. Explain The Role Of Workbench?
+Ans. It is simply an area to store test elements while you are in the process of 
+constructing a test. Once you’ve finished designing the test items in the Workbench, 
+you can copy or move them into the Test Plan.
+
+It also contains non-test elements like:
+
+1. Http mirror server
+2. HttpProxy server
+
+These items aren’t available in the thread group and Test plan.
+
+ 
+
+Q-8. What Is A Thread Group? List Down Its Main Parts?
+Ans. Thread group elements are the beginning points of any Test Plan. 
+It is mandatory to have at least one thread group in the Test Plan.
+
+One should know the following about the Thread Group.
+
+1. All controllers and samplers must be under a thread group.
+2. Listeners may be placed directly under the test plan, in which case they will apply to all the thread groups.
+3. The controls for a thread group allows you to:
+i. set the number of threads.
+ii. Define the ramp-up period.
+iii. Sets the number of times to execute the test.
+
+Following are the parts of a thread group.
+
+1. Sampler: It sends various types of requests to the server.
+2. Listeners: It saves the results of the Run. It can be opened for viewing also.
+3. Timer: It makes the run more realistic by inserting delays between the requests.
+4. Controller: It is responsible for controlling the flow of the thread group. An example 
+scenario is where the request definition includes if-then-else or loop structure.
+5. Config Element: information about the requests to be added to work with samplers.
+6. Assertion: To check if the response is generated within the given time and contain the expected data.
+
+ 
+
+Q-9. What Are JMeter Controllers? Explain Their Types?
+Ans. JMeter provides two types of Controllers.
+
+1. Samplers Controllers: It enables JMeter to post specific types of requests to a server. 
+It simulates a user’s request for a page from the target server.
+
+For example, you can add an HTTP Request sampler if you need to perform a POST, GET, or DELETE operation on an HTTP service.
+
+2. Logical Controllers: It lets you control the order of processing of Samplers in a Thread. 
+Logic Controllers can change the order of request coming from any of their child elements.
+
+Some examples are ForEach Controller, While Controller, Loop Controller, IF Controller, 
+Run Time Controller, Interleave Controller, Throughput Controller, and Run Once Controller.
+
+TOP
+
+Q-10.What Is A Configuration Element? List Down Its Elements.
+Ans. Configuration Element allows you to create defaults and variables to be used by Samplers. 
+It can be used to add or modify requests made by the Samplers. It will get executed at the 
+beginning of the scope before any Samplers present in the same range. Thus, we can say that 
+access to a configuration element is only allowed from inside the branch where it is present.
+
+Following are the key features of Configuration Element.
+
+1. CSV Data Set Config: It supports reading line by line from a file and splitting the line into variables.
+2. HTTP Authorization Manager: You can specify one or more user logins for web pages 
+that are restricted using server authentication.
+3. Java Request Defaults: Using this you can set default values for Java testing.
+4. HTTP Cookie Manager: The Cookie Manager element has two functions:
+i. It stores and sends cookies just like a web browser.
+ii. Second, you can manually add a cookie to the Cookie Manager. However, if you do this, 
+the cookie will be shared by all JMeter threads.
+5. HTTP Request Defaults: It lets you set default values to be used by your HTTP Request controllers.
+6. HTTP Header Manager: It enables you to add or override the HTTP request headers.
+
+ 
+
+Q-11. What Are Listeners? List Out A Few JMeter Listeners.
+Ans. It enables you to view the results of Samplers in the form of tables, graphs, trees or simple 
+text in some log files. It provides visual access to the data gathered by JMeter for the test cases 
+executed for the Sampler component of JMeter.
+JMeter supports the addition of Listeners anywhere in the tests that are included directly in the Test Plan. 
+They will collect data only from elements at the same or lower level.
+
+Some of the important JMeter Listeners are as follows.
+
+1. Spline Visualizer
+2. Aggregate Report
+3. View Result Tree
+4. View Result in Table
+5. Monitor Results
+6. Distribution Graph(alpha)
+7. Bean Shell Listener
+8. Summary Report
+9. Aggregate Graph
+10. Assertion Results
+11. Backend Listener
+12. Comparison Assertion Visualizer
+13. Generate summary results
+14. Graph Results
+15. JSR223 Listener
+16. Mailer Visualizer
+17. Response Time Graph
+18. Save responses to a file
+19. Simple data writer
+
+ 
+
+Q-12. Explain What Is Pre-Processor Element? Name A Few Of Them.
+Ans. It enables configuring a sample request before executing it or to update those variables 
+present in the response text that may not be extracted.
+
+Some of the main pre-processor elements are as follows.
+
+1. A modifier for HTTP URL.
+2. HTTP user parameter modifier.
+3. HTML link parser.
+4. BeanShell pre-processor.
+
+ 
+
+Q-13. Explain What Is Post-Processor?
+Ans. Post-processors get used for calling an action after a request is made.
+
+For example, suppose JMeter sends an HTTP request to the web server, and the user wants 
+JMeter to stop sending the request. If the web server shows an error, in this case, the user can use post-processor to perform this action.
+
+ 
+
+Q-14. What Is The Execution Order Of Test Elements In Test Plan Of JMeter?
+Ans. Following is the order of execution of the Test Plan elements.
+
+1. Configuration elements
+2. Pre-Processors
+3. Timers
+4. Sampler
+5. Post-Processors (unless SampleResult is null)
+6. Assertions (unless SampleResult is null)
+7. Listeners (unless SampleResult is null)
+
+ 
+
+Q-15. Is It Required To Prepare Separate Test Plan Using JMeter For The Testing Of The Same Application On Different Operating System?
+Ans. Following facts support that a JMeter Test Plan can run on any OS.
+
+1. JMeter is itself a pure Java-based application which makes it platform independent.
+2. JMeter uses XML format while saving a Test Plan. Thus, they have nothing to do with any particular OS. 
+You can run those Test Plans on any OS where JMeter can run.
+
+Q-16. How Do You Ensure Re-Usability In Your JMeter Scripts?
+Ans. Taking the following points into consideration we can encourage re-usability in the test scripts:
+
+1. Using config elements like “CSV Data Set Config” and “User Defined Variables” for supporting greater data reuse.
+2. Modularizing the shared tasks and invoking them via a “Module Controller”.
+3. Creating own Bean Shell functions and reusing them.
+
+TOP
+
+Q-17. How Can You Reduce Resource Requirements In JMeter?
+Ans. Following are the tricks that help in reducing resource usage.
+
+1. Use a non-GUI mode.
+
+jmeter -n -t test.jmx -l test.jtl
+2. It is better to use as few Listeners as possible. Applying the “-l” flag as shown in above point may 
+delete or disable all the Listeners.
+3. Disable the “View Result Tree” listener as it consumes a lot of memory and may result in JMeter tool 
+running out of memory. It will freeze the console too. It is, however, safe to use the “View Result Tree” 
+listener with only “Errors” kept checked.
+4. Instead of using a similar Sampler a large number of times, use the same Sampler in a loop and use variables 
+(CSV Data Set) to vary the sample data. Or perhaps use the Access Log Sampler.
+5. Avoid using functional mode.
+6. Use CSV output rather than XML.
+
+Also, you may like to read some of the common points.
+
+7. Try to save the data that you need.
+8. Use as few Assertions as possible.
+9. Disable all JMeter graphs as they consume a lot of memory. All the real-time graphs can be viewed 
+using the JTL tab in the web interface.
+10. Do not forget to erase the local path from CSV Data Set Config when used.
+11. Cleaning of the Files tab before every test run.
+
+Q-18. List The Benefits That JMeter Offers For Performance Testing?
+Ans. JMeter provides the following advantages for performance testing.
+
+1. It can be used to test performance for both, static resources as well as dynamic resources.
+2. It can generate and handle a large number of concurrent users as it happens on a live website.
+3. It provides a graphical analysis of performance reports.
+
+Q-19. Explain What Is Assertion In JMeter? List Its Types.
+Ans. Assertion helps to verify that the server under test returns the expected results.
+
+Some commonly used Assertion in JMeter are as follows.
+
+1. Response Assertion: It facilitates the user by comparing the server response against a string 
+pattern to check that the result is as expected. For Example, while waiting for a response from the 
+server the Response Assertion role is to verify that the server response has probable pattern string, “OK” or not.
+
+2. Duration Assertion: You may need to test the response from the server reaches in user-defined time. 
+If it takes longer than the defined time, server response fails.
+
+3. Size Assertion: It is to test that each response coming from server holds the expected number of bytes. 
+It facilitates the user to specify the size i.e. equal to, greater than, less than or not equal to a given 
+number of bytes. For example, if the response packet from a server is less than expected 5000 bytes in size, 
+then a test case pass, else a test case fails.
+
+4. XML Assertion: It verifies that the response coming from the server holds the data in a correct XML format.
+
+5. HTML Assertion: It is helpful for checking the syntax of the response data.
+
+ 
+
+Q-20. What Is Spike Testing And How Can We Perform It In JMeter?
+Ans. Suddenly increasing the number of users at a certain point of application and then monitoring its behavior 
+at that interval is Spike testing.
+
+In JMeter, Spike testing can be performed using Synchronizing Timer. This timer keeps on blocking the threads
+until a particular number of threads get reserved. It then releases them at once thus creating large instantaneous load.
