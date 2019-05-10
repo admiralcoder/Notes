@@ -20,20 +20,24 @@ OOP language must follow 4 principles
 
 1.	Encapsulation
  
-We can hide direct access to the data by using private keyword and we can access private that that by using get there and set of methods.
+We can hide direct access to the data by using private keyword and we can access private that that 
+by using get there and set of methods.
 
 2.	Abstractionm  (Test Base Class)
 
-Abstraction is a process of hiding implementation details and showing only the functionality to the user.  It lets you focus on what the object does instead of how.
+Abstraction is a process of hiding implementation details and showing only the functionality to the user. 
+It lets you focus on what the object does instead of how.
 
 3.	Inheritance
 
-Inheritance is used to define the relationship between two classes.  When a child class get all the properties and behaviors of parent class known as inheritance. Child class can reuse all the codes written in parent class.
+Inheritance is used to define the relationship between two classes.  When a child class get all the properties
+and behaviors of parent class known as inheritance. Child class can reuse all the codes written in parent class.
  Inheritance provides code reusability.
 
 4.	Polymorphism
 
-Polymorphism is an ability of an object to behave in multiple forms. The most common use of polymorphism in Java; when a parent class reference type of variable is used to refer to a child class object.
+Polymorphism is an ability of an object to behave in multiple forms. The most common use of polymorphism in Java; 
+when a parent class reference type of variable is used to refer to a child class object.
  for example:    
 WebDriver driver = new ChromeDriver();  
 
@@ -42,11 +46,13 @@ We use method overloading and overriding to achieve polymorphism.
 
 What is the concept of Abstraction?
 
-In OOP Abstraction is a process of hiding implementation details from the user, only the functionality will be provided to the user. In other words, the user will have the information on what the object does instead of how it does.
+In OOP Abstraction is a process of hiding implementation details from the user, only the functionality 
+will be provided to the user. In other words, the user will have the information on what the object does instead of how it does.
 
  *** In Java abstraction is achieved by using Abstract classes and Interfaces ***
 
- for example:  When login to our App online, you enter your user ID and password and hit login button. What happens when you press login, how the input that sent to the server, how it gets verified is all abstracted away a from you.
+ for example:  When login to our App online, you enter your user ID and password and hit login button. 
+ What happens when you press login, how the input that sent to the server, how it gets verified is all abstracted away a from you.
 Abstract Class: A class that is declared with abstract keyboard is known as abstract class.
 It can have abstract and non-abstract class. When we want to use abstract class, we use extend keyword.
 Cannot be instantiated and cannot create an instance of an Abstract Class
@@ -57,10 +63,12 @@ When we want to use interface, we use implement keyword.
 
 Abstract Class vs Interface
 Abstract Class	Interface
-A class can extend only one abstract class. Multiple inheritance is not possible using abstract class	Any class can implement multiple interfaces. Multiple inheritance is possible using interfaces in Java
+A class can extend only one abstract class. Multiple inheritance is not possible using abstract class	
+Any class can implement multiple interfaces. Multiple inheritance is possible using interfaces in Java
 Can have constructor	Cannot have constructor
 Abstract class can also have private, protected fields.	Fields in Interface are public static final
-Abstract class may contain both abstract and concrete methods.	Up to java 7, interface can only contain public abstract methods. We cannot declare any concrete methods inside interface.
+Abstract class may contain both abstract and concrete methods.	Up to java 7, interface can only contain 
+public abstract methods. We cannot declare any concrete methods inside interface.
 Abstraction vs Encapsulation?
 Abstraction lets you focus on what the object does instead of how it does.
 Encapsulation means; hiding the internal details of how the object does something.
@@ -70,12 +78,17 @@ Abstraction can be achieved by using abstract class and interfaces.
 Encapsulation can be achieved by using private keyword.
 
 Polymorphism vs Inheritance 
-Like in real world inheritance is used to define the relationship between two classes. It is similar to father-son relationship. In Java we have parent class (a.k.a. super class) and child class (subclass) similar to the real world, child inherits parent's qualities (methods, codes).
- A child class can reuse all the codes written in parent class and only write code for behavior which is different than the parent class.
+Like in real world inheritance is used to define the relationship between two classes. It is similar to 
+father-son relationship. In Java we have parent class (a.k.a. super class) and child class (subclass) 
+similar to the real world, child inherits parent's qualities (methods, codes).
+ A child class can reuse all the codes written in parent class and only write code for behavior which 
+ is different than the parent class.
 Inheritance is meant for code-reuse.
 
 On the other hand, polymorphism is an ability of an object to behave in multiple forms.
-Polymorphism is classified as overloading and overriding. Polymorphism and Inheritance are related to each other because Inheritance what makes polymorphism possible. Without any relationship between two classes it is not possible to write polymorphic code.
+Polymorphism is classified as overloading and overriding. Polymorphism and Inheritance are related to each 
+other because Inheritance what makes polymorphism possible.
+Without any relationship between two classes it is not possible to write polymorphic code.
 
 Access Modifiers: private, default, protected, public 
 Access modifiers used for determining the accessibility of class, method and variable.
@@ -143,8 +156,10 @@ Compare each element of Array to each other and return true if any duplicate fou
 Find Duplicates in Array and remove the Duplicates by using for loop:  
 Array     VS   ArrayList
 Array	ArrayList
-Array is part of core Java programming and has special syntax	ArrayList is a part of Collection Framework and Implements List Interface
-Array is fixed length data structure. You CAN'T change the length of an Array once created. NOT Resizable.	ArrayList is resizable.
+Array is part of core Java programming and has special syntax	ArrayList is a part of Collection 
+Framework and Implements List Interface
+Array is fixed length data structure. You CAN'T change the length of an Array once created. NOT Resizable.	
+ArrayList is resizable.
 Array CAN contain both primitives and objects.	ArrayList CAN contain only Objects.
 Array can be multi dimensional	ArrayList is single dimensional only
 Length	Size()
@@ -168,7 +183,8 @@ You can choose HashMap, HashTable..
 
 Error    VS    Exception
 Error	Exception
-Error represents error which are generally CAN'T be handled. (OutOfMemory Error, No ClassFound Error)	Exception represent errors which can be catched and handled.
+Error represents error which are generally CAN'T be handled. (OutOfMemory Error, No ClassFound Error)	
+Exception represent errors which can be catched and handled.
 (IOException, NullPointerException) 
 Recovering from Error is NOT possible. The only solution is to terminate the execution
 Examples: 
@@ -200,7 +216,9 @@ checked exceptions CAN'T be propagated with "throw" only because it is explicitl
 Propagate (extend/spread/yayilma): 
 Uncaught exceptions are propagated in the call stack until stack becomes empty, this propagation is called Exception Propagation.
 
-An exception propagates from method to method, up the call stack, until it's caught. So if a() calls b(), which calls c(), which calls d(), and if d() throws an exception, the exception will propagate from d to c to b to a, unless one of these methods catches the exception.
+An exception propagates from method to method, up the call stack, until it's caught. So if a() calls b(), 
+which calls c(), which calls d(), and if d() throws an exception, the exception will propagate from d to c to b to a, 
+unless one of these methods catches the exception.
 
 
 
@@ -220,7 +238,8 @@ final is a keyword and used to apply restrictions on class, method and variable.
 "	final Method   CAN'T be Overridden
 "	final  Variable  value CAN'T be changed.
 finally is a block and used to place important code, it will be executed whether exception handled or not
-finalize is a method and used to perform clean-up processing before Object is Garbage collected. It might be executed or not, depends on the compiler.
+finalize is a method and used to perform clean-up processing before Object is Garbage collected. 
+It might be executed or not, depends on the compiler.
 
 Object    VS    Class
 Object	Class
@@ -244,9 +263,13 @@ String is immutable
 
 StringBuilder Class:
 
-StringBuilder objects are like String objects, except that they can be modified. Internally, these objects are treated like variable-length arrays that contain a sequence of characters. At any point, the length and content of the sequence can be changed through method invocations.
+StringBuilder objects are like String objects, except that they can be modified. Internally, 
+these objects are treated like variable-length arrays that contain a sequence of characters. 
+At any point, the length and content of the sequence can be changed through method invocations.
 
-NOTE: Strings should always be used unless string builders offer an advantage in terms of simpler code (example link) or better performance. For example, if you need to concatenate a large number of strings, appending to a StringBuilder object is more efficient.
+NOTE: Strings should always be used unless string builders offer an advantage in terms of simpler 
+code (example link) or better performance. For example, if you need to concatenate a large number of strings, 
+appending to a StringBuilder object is more efficient.
 
 StringBuilder Constructors
 Constructor	Description
@@ -254,13 +277,15 @@ StringBuilder ()	Creates an empty string builder with a capacity of 16 (16 empty
 
 StringBuilder (CharSequence cs)
 	 
-Constructs a string builder containing the same characters as the specified CharSequence, plus an extra 16 empty elements trailing the CharSequence.
+Constructs a string builder containing the same characters as the specified CharSequence,
+plus an extra 16 empty elements trailing the CharSequence.
 
 StringBuilder (int initCapacity)
 	Creates an empty string builder with the specified initial capacity.
 
 StringBuilder (String s)
-	Creates a string builder whose value is initialized by the specified string, plus an extra 16 empty elements trailing the string.
+	Creates a string builder whose value is initialized by the specified string, plus an extra 16 empty 
+	elements trailing the string.
 
 
 Example: Following code creates empty builder, capacity 16 and adds 9-character string at beginning and 
@@ -348,17 +373,23 @@ static String valueOf(int value)
 converts given type into string. It is overloaded.
 
 Array
-Comes from java.util class. An array is a container object that holds a fixed number of values of a single type. The length of an array is established when the array is created. After creation, its length is fixed. You have seen an example of arrays already, in the main method of the "Hello World!" application. This section discusses arrays in greater detail.
+Comes from java.util class. An array is a container object that holds a fixed number of values of a single type. 
+The length of an array is established when the array is created. After creation, its length is fixed. 
+You have seen an example of arrays already, in the main method of the "Hello World!" application. 
+This section discusses arrays in greater detail.
  
 
 .size() method gives you the length of an Array.
-Each item in an array is called an element, and each element is accessed by its numerical index. As shown in the preceding illustration, numbering begins with 0. The 9th element, for example, would therefore be accessed at index 8.
+Each item in an array is called an element, and each element is accessed by its numerical index. 
+As shown in the preceding illustration, numbering begins with 0. The 9th element, for example, 
+would therefore be accessed at index 8.
 
 Advantage of Java Array
 Code Optimization: It makes the code optimized, we can retrieve or sort the data easily.
 Random access: We can get any data located at any index position.
 Disadvantage of Java Array
-Size Limit: We can store only fixed size of elements in the array. It doesn't grow its size at runtime. To solve this problem, collection framework is used in java.
+Size Limit: We can store only fixed size of elements in the array. It doesn't grow its size at runtime. 
+To solve this problem, collection framework is used in java.
 
 
 "	java.lang.Object
@@ -368,20 +399,24 @@ You don't need to import explicitly java.util.Arrays because it is already impor
 Array Methods:
 Int [] myArray = {5,8,3}
 array.length 
-int length = myArray.length;	if we wish to iterate to all the values in the array, the length of the Java array will determine how many times we need to loop
+int length = myArray.length;	if we wish to iterate to all the values in the array, the length of the 
+Java array will determine how many times we need to loop
 
 Arrays.sort(myArray)	Sortst "myArray" //import java.util.Arrays
-Arrays.binarySearch(myArray, valie);	Will give the index of the "Value" Binary search works only if the Array sorted already. Doesn't work on unsorted array!
+Arrays.binarySearch(myArray, valie);	Will give the index of the "Value" Binary search works only if 
+the Array sorted already. Doesn't work on unsorted array!
 String[][] myArray=new String [3][2]	Creates two-dimensional array
 Arrays.asList(myArray);
 
-List list1 = Arrays.asList(myArray); System.out.println(list1);	Returns the list view of an Array. his method acts as bridge between array-based and collection-based APIs.
+List list1 = Arrays.asList(myArray); System.out.println(list1);	Returns the list view of an Array. 
+his method acts as bridge between array-based and collection-based APIs.
 
 Arrays.toString(myArray);
 
 for (int number : myArray) {          System.out.println("Number = " + number);       
 }              
-System.out.println("The string representation of array is:");       System.out.println(Arrays.toString(myArray));  } }	returns a string representation of myArray
+System.out.println("The string representation of array is:");       System.out.println(Arrays.toString(myArray));  } }	
+returns a string representation of myArray
 
 Arrays.deepToString(myArray);	returns a string representation of multi-dimensional array
 
@@ -405,15 +440,17 @@ ArrayList(int initialCapacity)	This constructor is used to create an empty list 
 ArrayList Methods
  void	add(int index, Object element)    Inserts the specified element at the specified position in this ArrayList.
 boolen	add(Object o)    Appends the specified element to the end of this ArrayList.
-boolen	addAll(Collection c)    Appends all of the elements in the specified Collection to the end of this this ArrayList, in the order that they are returned by the specified Collection's Iterator.
-boolen	addAll(int index, Collection c)   Inserts all of the elements in the specified Collection into this ArrayList, starting at the specified position.
+boolen	addAll(Collection c)    Appends all of the elements in the specified Collection to the end of this this ArrayList, 
+in the order that they are returned by the specified Collection's Iterator.
+boolen	addAll(int index, Collection c)   Inserts all of the elements in the specified Collection into this ArrayList, 
+starting at the specified position.
  void	clear()   Removes all of the elements from this ArrayList.
  Object
 clone()   Returns a shallow copy of this ArrayList.
 
 boolen	contains(Object elem)   Returns true if this ArrayList contains the specified element.
  void	ensureCapacity(int minCapacity)    Increases the capacity of this ArrayList, if necessary, to ensure that it can hold at
-                                                              least the number of components specified by the minimum capacity argument.
+                                         least the number of components specified by the minimum capacity argument.
  Object
 get(int index)    Returns the element at the specified position in this ArrayList.
  int	indexOf(Object elem)   Searches for the first occurrence of the given argument, testing for equality using the equals method
@@ -449,31 +486,10 @@ Exceptions
 Example: The following example shows the usage of java.util.Collections.sort()  // (link)
 
 
- 
-
-
-
-
-
-
-
-
-
-
-
-
 Map Examples:
  
 TreeMap
  
-
-
-
- 
-
-
- 
-
 
 Note: Set doesn't have get(int index) method because no order is maintained with Set so elements don't have fixed index.
 
@@ -483,7 +499,8 @@ Impl        	ADT
 Data Structure	 Performance
 ArrayList
 (sync)	List 	Array of objects.
-A new array is created and populated whenever elements are added beyond the current length (capacity) of the underlying array. 	add(E element) method: O(1) amortized. That is, adding n elements within capacity: constant time O(1).
+A new array is created and populated whenever elements are added beyond the current length (capacity) of the underlying array. 
+add(E element) method: O(1) amortized. That is, adding n elements within capacity: constant time O(1).
 Adding an element beyond capacity: O(n) times. 
 It's better to specify initial capacity at construction if known.
 
@@ -492,7 +509,8 @@ All other operations including get(int index) run in linear time O(1) .
 The constant factor of O(1) is low compared to that for the LinkedList implementation. 
 LinkedList
 (sync)	List,
-Deque	Doubly-linked list. Each element has memory addresses of the previous and next item used internally. 	get(int index), remove(int index): O(n)
+Deque	Doubly-linked list. Each element has memory addresses of the previous and next item used internally. 
+get(int index), remove(int index): O(n)
 add(E element) and others: Constant time O(1).
 Vector
 (sync)
@@ -501,15 +519,21 @@ Stack
 extends Vector
 (sync)
 (Legacy) 	List	Array of objects. LIFO (Last in first out).
-It provides addition methods empty(), peek(), pop(), push(E e) and search(Object o)	Similar to Vector/ArrayList but slower because of synchronisation.
+It provides addition methods empty(), peek(), pop(), push(E e) and search(Object o)	
+Similar to Vector/ArrayList 
+but slower because of synchronisation.
 HashSet
-(sync)	Set	Backed by HashMap (a Hash table data structure). Elements of the set are populated as key of the HashMap. Allows at most one null. 	add, remove, contains, size: O(1)
-Iteration: O(n + capacity). Better don't set initial capacity (size of backing hasMap) too high or load factor too low if iteration is frequently used. 
+(sync)	Set	Backed by HashMap (a Hash table data structure). Elements of the set are populated as key of the HashMap. 
+Allows at most one null. 	add, remove, contains, size: O(1)
+Iteration: O(n + capacity). Better don't set initial capacity (size of backing hasMap) too high or load factor too low if 
+iteration is frequently used. 
 LinkedHashSet
-(sync)	Set	Backed by LinkedHashMap where elements of this LinkedHashSet are populated as key of the Map. Maintains elements in insertion order. Allows at most one null. 	add, remove, contains, size: O(1)
+(sync)	Set	Backed by LinkedHashMap where elements of this LinkedHashSet are populated as key of the Map. 
+Maintains elements in insertion order. Allows at most one null. 	add, remove, contains, size: O(1)
 Iteration: O(n), slightly slow that of HashSet, due to maintaining the linked list. 
 TreeSet
-(sync)	NavigableSet	Backed by TreeMap (a red-black tree data structure). The elements of this set are populated as key of the Map. Doesn't permit null. 	add, remove, contains: O(log n) 
+(sync)	NavigableSet	Backed by TreeMap (a red-black tree data structure). The elements of this set are populated 
+as key of the Map. Doesn't permit null. 	add, remove, contains: O(log n) 
 Iteration: O(n) slower than HashSet. 
 EnumSet
 (sync)	Set	Bit vectors
